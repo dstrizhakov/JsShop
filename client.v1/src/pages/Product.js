@@ -27,7 +27,6 @@ const Product = () => {
     }
     return (
         <Container className="section">
-
             <Row className="mt-3 mb-3">
                 <Col xs={12} md={8}>
                     {product.image ? (
