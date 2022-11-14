@@ -92,7 +92,7 @@ h6 {
 # Page Header
 --------------------------------------------------------------*/
 .page-header {
-    padding: 80px 0 60px 0;
+    padding: 60px 0 60px 0;
     min-height: 20vh;
     background-color: var(--background-main);
     position: relative;
@@ -1222,11 +1222,11 @@ h6 {
 --------------------------------------------------------------*/
 .hero {
     width: 100%;
-    min-height: 20vh;
+    min-height: 10vh;
     background-color: var(--background-main);
     background-size: cover;
     position: relative;
-    padding: 120px 0 60px 0;
+    padding: 20px 0;
 }
 
 .hero h2 {
@@ -1257,7 +1257,7 @@ h6 {
 
 .hero p {
     color: var(--color-default);
-    margin-bottom: 30px;
+    margin-bottom: 5px;
     font-size: 18px;
 }
 

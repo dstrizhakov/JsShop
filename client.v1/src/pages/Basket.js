@@ -6,7 +6,7 @@ const Basket = () => {
         <Container className="page-header">
             <div className="container position-relative">
                 <div className="row d-flex justify-content-center">
-                    <div className="col-lg-10">
+                    <div className="col-lg-10 text-center">
             <h2 >Basket</h2>
             <BasketList />
                     </div>

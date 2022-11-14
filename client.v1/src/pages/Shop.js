@@ -98,7 +98,8 @@ const Shop = observer(() => {
 
     return (
         <Container className="page-header">
-            <Row className="mt-5">
+            <Hero/>
+            <Row className="mt-0">
                 <Col md={2} className="mb-3">
                     {categoriesFetching||brandsFetching ? (
                         <Spinner animation="border" />

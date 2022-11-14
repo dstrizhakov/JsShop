@@ -19,12 +19,12 @@ const User = () => {
             <div className="d-flex align-items-center">
                 <div className="container position-relative">
                     <div className="row d-flex justify-content-center">
-                        <div className="col-lg-10">
+                        <div className="col-lg-10 text-center">
             <h2>User panel</h2>
            {/* <p>
                 Это личный кабинет постоянного покупателя магазина
             </p>*/}
-            <ul>
+            <ul className="col-lg-10 text-start">
                 <li><Link to="/user/orders">Orders history</Link></li>
             </ul>
             <Button onClick={handleLogout}>Logout</Button>

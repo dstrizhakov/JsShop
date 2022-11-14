@@ -7,7 +7,7 @@ const Contact = () => {
             <div className="page-header d-flex align-items-center">
                 <div className="container position-relative">
                     <div className="row d-flex justify-content-center">
-                        <div className="col-lg-10">
+                        <div className="col-lg-10 text-center">
                             <h2>Contact</h2>
                             <p>For any inquiries, feel free to contact us using the form below or drop us an email.
                             </p>
@@ -46,7 +46,7 @@ const Contact = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="row justify-content-center mt-4">
+                    <div className="row mt-4 justify-content-center">
                         <div className="col-lg-9">
                             <form action="#" method="post" role="form" className="php-email-form">
                                 <div className="row">

@@ -18,9 +18,9 @@ const Admin = () => {
         <Container className="page-header">
             <div className="container position-relative">
                 <div className="row d-flex justify-content-center">
-                    <div className="col-lg-10">
+                    <div className="col-lg-10 text-center">
             <h2>Admin panel</h2>
-            <ul className="justify-content-end">
+            <ul className="justify-content-end text-start">
                 <li><Link to="/admin/orders">Orders</Link></li>
                 <li><Link to="/admin/categories">Catogories</Link></li>
                 <li><Link to="/admin/brands">Types</Link></li>
