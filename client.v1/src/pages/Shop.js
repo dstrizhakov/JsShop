@@ -97,7 +97,7 @@ const Shop = observer(() => {
     }, [catalog.category, catalog.brand, catalog.page])
 
     return (
-        <Container className="section">
+        <Container className="page-header">
             <Row className="mt-5">
                 <Col md={2} className="mb-3">
                     {categoriesFetching||brandsFetching ? (

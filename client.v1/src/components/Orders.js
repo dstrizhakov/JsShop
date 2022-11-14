@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Orders = (props) => {
 
     if (props.items.length === 0) {
-        return <p>Список заказов пустой</p>
+        return <p>Orders list is empty</p>
     }
 
     return (
@@ -12,13 +12,13 @@ const Orders = (props) => {
             <thead>
                 <tr>
                     <th>№</th>
-                    <th>Дата</th>
-                    <th>Покупатель</th>
-                    <th>Адрес почты</th>
-                    <th>Телефон</th>
-                    <th>Статус</th>
-                    <th>Сумма</th>
-                    <th>Подробнее</th>
+                    <th>Date</th>
+                    <th>Buyer</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>Details</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,9 +33,9 @@ const Orders = (props) => {
                         <td>{item.amount}</td>
                         <td>
                             {props.admin ? (
-                                <Link to={`/admin/order/${item.id}`}>Подробнее</Link>
+                                <Link to={`/admin/order/${item.id}`}>Details</Link>
                             ) : (
-                                <Link to={`/user/order/${item.id}`}>Подробнее</Link>
+                                <Link to={`/user/order/${item.id}`}>Details</Link>
                             )}
                             
                         </td>

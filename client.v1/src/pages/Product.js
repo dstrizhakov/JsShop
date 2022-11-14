@@ -26,7 +26,7 @@ const Product = () => {
         return <Spinner animation="border" />
     }
     return (
-        <Container className="section">
+        <Container className="page-header">
             <Row className="mt-3 mb-3">
                 <Col xs={12} md={8}>
                     {product.image ? (
@@ -40,18 +40,30 @@ const Product = () => {
                     <h3>{product.price} USD</h3>
                     <p>Type: {product.brand.name}</p>
                     <p>Category: {product.category.name}</p>
-                    <div>
+                    {!!product.props.length &&
+                        <div>
+                            {product.props.map(item =>
+                                <div key={item.id}>
+                                    <span>{item.name}</span>
+                                    <span>{item.value}</span>
+                                    <p></p>
+                                </div>
+                            )}
+                        </div>
+
+                    }
+                    {/*<div>
                         {rating ? (
                             <p>Rating: {rating.rating}, голосов {rating.votes}</p>
                         ) : (
                             <Spinner animation="border" />
                         )}
-                    </div>
-                    <Button className="me-2" variant="warning">Buy on Etsy</Button>{' '}
+                    </div>*/}
+                    {/*<Button className="me-2" variant="warning">Buy on Etsy</Button>{' '}*/}
                     <Button onClick={() => handleClick(product.id)}>Add to basket</Button>
                 </Col>
             </Row>
-            {!!product.props.length &&
+          {/*  {!!product.props.length &&
                 <Row>
                     <Col>
                         <h3>Details:</h3>
@@ -67,7 +79,7 @@ const Product = () => {
                             </Table>
                     </Col>
                 </Row>
-            }
+            }*/}
         </Container>
     )
 }

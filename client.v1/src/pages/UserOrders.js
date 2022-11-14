@@ -22,9 +22,17 @@ const UserOrders = () => {
     }
 
     return (
-        <Container className="section">
-            <h1>Ваши заказы</h1>
+        <Container className="page-header">
+            <div className="d-flex align-items-center">
+                <div className="container position-relative">
+                    <div className="row d-flex justify-content-center">
+                        <div className="col-lg-10">
+            <h1>Your orders</h1>
             <Orders items={orders} admin={false} />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </Container>
     )
 }

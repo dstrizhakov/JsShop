@@ -3,7 +3,7 @@
 Чтобы развернуть проект, клонируем этот репозиторий к себе на компьютер, в директорию `shop`
 
 ```
-https://github.com/dstrizhakov/JsShop.git
+https://github.com/dstrizhakov/JsShop.git shop
 ```
 
 Создаем базу данных с помощью утилиты `psql`

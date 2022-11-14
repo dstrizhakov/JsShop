@@ -24,7 +24,7 @@ const AdminCategories = () => {
             .then(
                 data => {
                     setChange(!change)
-                    alert(`Категория «${data.name}» удалена`)
+                    alert(`Categoru «${data.name}» was deleted`)
                 }
             )
             .catch(
@@ -47,18 +47,18 @@ const AdminCategories = () => {
     }
 
     return (
-        <Container>
-            <h1>Категории</h1>
-            <Button onClick={() => setCreateShow(true)}>Создать категорию</Button>
+        <Container className="page-header">
+            <h1>Categories</h1>
+            <Button onClick={() => setCreateShow(true)}>Create category</Button>
             <CreateCategory show={createShow} setShow={setCreateShow} setChange={setChange} />
             <UpdateCategory id={category} show={updateShow} setShow={setUpdateShow} setChange={setChange} />
             {categories.length > 0 ? (
                 <Table bordered hover size="sm" className="mt-3">
                     <thead>
                         <tr>
-                            <th>Название</th>
-                            <th>Редактировать</th>
-                            <th>Удалить</th>
+                            <th>Name</th>
+                            <th>Manage</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -67,12 +67,12 @@ const AdminCategories = () => {
                                 <td>{item.name}</td>
                                 <td>
                                     <Button variant="success" size="sm" onClick={() => handleUpdateClick(item.id)}>
-                                        Редактировать
+                                        Manage
                                     </Button>
                                 </td>
                                 <td>
                                     <Button variant="danger" size="sm" onClick={() => handleDeleteClick(item.id)}>
-                                        Удалить
+                                        Delete
                                     </Button>
                                 </td>
                             </tr>
@@ -80,7 +80,7 @@ const AdminCategories = () => {
                     </tbody>
                 </Table>
             ) : (
-                <p>Список категорий пустой</p>
+                <p>Category list is empty</p>
             )}
         </Container>
     )

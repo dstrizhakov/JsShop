@@ -15,15 +15,21 @@ const Admin = () => {
     }
 
     return (
-        <Container className="section">
-            <h1>Панель управления</h1>
-            <ul>
-                <li><Link to="/admin/orders">Заказы в магазине</Link></li>
-                <li><Link to="/admin/categories">Категории каталога</Link></li>
-                <li><Link to="/admin/brands">Типы каталога</Link></li>
-                <li><Link to="/admin/products">Товары каталога</Link></li>
+        <Container className="page-header">
+            <div className="container position-relative">
+                <div className="row d-flex justify-content-center">
+                    <div className="col-lg-10">
+            <h2>Admin panel</h2>
+            <ul className="justify-content-end">
+                <li><Link to="/admin/orders">Orders</Link></li>
+                <li><Link to="/admin/categories">Catogories</Link></li>
+                <li><Link to="/admin/brands">Types</Link></li>
+                <li><Link to="/admin/products">Items</Link></li>
             </ul>
-            <Button onClick={handleLogout}>Выйти</Button>
+            <Button onClick={handleLogout}>Logout</Button>
+                    </div>
+                </div>
+            </div>
         </Container>
     )
 }

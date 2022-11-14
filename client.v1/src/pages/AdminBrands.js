@@ -24,7 +24,7 @@ const AdminBrands = () => {
             .then(
                 data => {
                     setChange(!change)
-                    alert(`Тип «${data.name}» удален`)
+                    alert(`Type «${data.name}» was deleted`)
                 }
             )
             .catch(
@@ -47,18 +47,18 @@ const AdminBrands = () => {
     }
 
     return (
-        <Container>
-            <h1>Типы</h1>
-            <Button onClick={() => setCreateShow(true)}>Создать тип</Button>
+        <Container className="page-header">
+            <h1>Types</h1>
+            <Button onClick={() => setCreateShow(true)}>Create type</Button>
             <CreateBrand show={createShow} setShow={setCreateShow} setChange={setChange} />
             <UpdateBrand id={brand} show={updateShow} setShow={setUpdateShow} setChange={setChange} />
             {brands.length > 0 ? (
                 <Table bordered hover size="sm" className="mt-3">
                 <thead>
                     <tr>
-                        <th>Название</th>
-                        <th>Редактировать</th>
-                        <th>Удалить</th>
+                        <th>Name</th>
+                        <th>Manage</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -67,12 +67,12 @@ const AdminBrands = () => {
                             <td>{item.name}</td>
                             <td>
                                 <Button variant="success" size="sm" onClick={() => handleUpdateClick(item.id)}>
-                                    Редактировать
+                                    Manage
                                 </Button>
                             </td>
                             <td>
                                 <Button variant="danger" size="sm" onClick={() => handleDeleteClick(item.id)}>
-                                    Удалить
+                                    Delete
                                 </Button>
                             </td>
                         </tr>
@@ -80,7 +80,7 @@ const AdminBrands = () => {
                 </tbody>
                 </Table>
             ) : (
-                <p>Список типов пустой</p>
+                <p>Types list is empty</p>
             )}
         </Container>
     )

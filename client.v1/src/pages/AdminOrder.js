@@ -32,8 +32,8 @@ const AdminOrder = () => {
     }
 
     return (
-        <Container>
-            <h1>Заказ № {order.id}</h1>
+        <Container className="page-header">
+            <h1>Order № {order.id}</h1>
             <Order data={order} admin={true} />
         </Container>
     )

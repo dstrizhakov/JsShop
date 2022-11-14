@@ -15,15 +15,23 @@ const User = () => {
     }
 
     return (
-        <Container className="section">
-            <h1>Личный кабинет</h1>
-            <p>
+        <Container className="page-header">
+            <div className="d-flex align-items-center">
+                <div className="container position-relative">
+                    <div className="row d-flex justify-content-center">
+                        <div className="col-lg-10">
+            <h2>User panel</h2>
+           {/* <p>
                 Это личный кабинет постоянного покупателя магазина
-            </p>
+            </p>*/}
             <ul>
-                <li><Link to="/user/orders">История заказов</Link></li>
+                <li><Link to="/user/orders">Orders history</Link></li>
             </ul>
-            <Button onClick={handleLogout}>Выйти</Button>
+            <Button onClick={handleLogout}>Logout</Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </Container>
     )
 }

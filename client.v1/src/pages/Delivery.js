@@ -6,7 +6,7 @@ const Delivery = () => {
         <Container className="page-header d-flex align-items-center">
             <div className="container position-relative">
                 <div className="row d-flex justify-content-center">
-                    <div className="col-lg-10 text-center">
+                    <div className="col-lg-10">
                         <h2>Shipping Policy</h2>
                         <p>Shipping is included in the price of the goods. I ship the goods within 1-3 business days
                             after payment. Delivery times depend on the country and the workload of postal services.

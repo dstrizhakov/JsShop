@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { fetchAllProducts, deleteProduct } from '../http/catalogAPI.js'
-import { Button, Container, Spinner, Table, Pagination } from 'react-bootstrap'
+import {Button, Container, Spinner, Table, Pagination, Image} from 'react-bootstrap'
 import CreateProduct from '../components/CreateProduct.js'
 import UpdateProduct from '../components/UpdateProduct.js'
 
@@ -59,7 +59,7 @@ const AdminProducts = () => {
                     } else {
                         setChange(!change)
                     }
-                    alert(`Товар «${data.name}» удален`)
+                    alert(`Item «${data.name}» was deleted`)
                 }
             )
             .catch(
@@ -85,9 +85,9 @@ const AdminProducts = () => {
     }
 
     return (
-        <Container>
-            <h1>Товары</h1>
-            <Button onClick={() => setCreateShow(true)}>Создать товар</Button>
+        <Container className="page-header">
+            <h1>Items</h1>
+            <Button onClick={() => setCreateShow(true)}>Create item</Button>
             <CreateProduct show={createShow} setShow={setCreateShow} setChange={setChange} />
             <UpdateProduct id={product} show={updateShow} setShow={setUpdateShow} setChange={setChange} />
             {products.length > 0 ? (
@@ -95,13 +95,13 @@ const AdminProducts = () => {
                     <Table bordered hover size="sm" className="mt-3">
                     <thead>
                         <tr>
-                            <th>Название</th>
-                            <th>Фото</th>
-                            <th>Категория</th>
-                            <th>Тип</th>
-                            <th>Цена</th>
-                            <th>Редактировать</th>
-                            <th>Удалить</th>
+                            <th>Name</th>
+                            <th>Photo</th>
+                            <th>Category</th>
+                            <th>Type</th>
+                            <th>Price</th>
+                            <th>Manage</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -110,19 +110,20 @@ const AdminProducts = () => {
                                 <td>{item.name}</td>
                                 <td>
                                     {item.image &&
-                                    <a href={process.env.REACT_APP_IMG_URL + item.image} target="_blank">фото</a>}
+                                        <a href={process.env.REACT_APP_IMG_URL + item.image} target="_blank">Photo</a>
+                                        }
                                 </td>
                                 <td>{item.category?.name || 'NULL'}</td>
                                 <td>{item.brand?.name || 'NULL'}</td>
                                 <td>{item.price}</td>
                                 <td>
                                     <Button variant="success" size="sm" onClick={() => handleUpdateClick(item.id)}>
-                                        Редактировать
+                                        Manage
                                     </Button>
                                 </td>
                                 <td>
                                     <Button variant="danger" size="sm" onClick={() => handleDeleteClick(item.id)}>
-                                        Удалить
+                                        Delete
                                     </Button>
                                 </td>
                             </tr>
@@ -132,7 +133,7 @@ const AdminProducts = () => {
                     {totalPages > 1 && <Pagination>{pages}</Pagination>}
                 </>
             ) : (
-                <p>Список товаров пустой</p>
+                <p>Items list is empty</p>
             )}
         </Container>
     )

@@ -575,7 +575,7 @@ h6 {
     }
 
     .mobile-nav-show {
-        color: #fff;
+        color: var(--color-default);
         font-size: 28px;
         cursor: pointer;
         line-height: 0;

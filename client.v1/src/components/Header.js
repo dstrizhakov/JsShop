@@ -26,7 +26,7 @@ const Header = observer(() => {
                         </FetchBasket>
                         <CheckAuth>
                             {user.isAuth ? (
-                                <NavLink to="/user" className="nav-link">User orders</NavLink>
+                                <NavLink to="/user" className="nav-link">User panel</NavLink>
                             ) : (
                                 <>
                                     <li><NavLink to="/login" className="nav-link">Log in</NavLink></li>

@@ -3,11 +3,11 @@ import {Button} from "react-bootstrap";
 
 const Contact = () => {
     return (
-        <div>
+        <div className="mb-3">
             <div className="page-header d-flex align-items-center">
                 <div className="container position-relative">
                     <div className="row d-flex justify-content-center">
-                        <div className="col-lg-10 text-center">
+                        <div className="col-lg-10">
                             <h2>Contact</h2>
                             <p>For any inquiries, feel free to contact us using the form below or drop us an email.
                             </p>
