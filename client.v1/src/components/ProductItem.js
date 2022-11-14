@@ -1,6 +1,7 @@
 import { Card, Col } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 
+
 const ProductItem = ({data}) => {
     const navigate = useNavigate()
     return (
