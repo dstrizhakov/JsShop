@@ -28,9 +28,10 @@ const Product = () => {
     return (
         <Container className="page-header">
             <Row className="mt-3 mb-3">
-                <Col xs={12} md={8}>
+                <Col xs={12} md={8} >
                     {product.image ? (
-                        <Image width={650}  src={process.env.REACT_APP_IMG_URL + product.image} />
+                            <Image className="img-fluid rounded-2 text-center" src={process.env.REACT_APP_IMG_URL + product.image} />
+
                     ) : (
                         <Image width={650} height={450} src="http://via.placeholder.com/300" />
                     )}

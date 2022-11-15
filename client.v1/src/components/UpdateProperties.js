@@ -40,7 +40,7 @@ const UpdateProperties = (props) => {
                             name={'name_' + item.unique}
                             value={item.name}
                             onChange={e => change('name', e.target.value, item.unique)}
-                            placeholder="Название..."
+                            placeholder="Title..."
                             size="sm"
                         />
                     </Col>
@@ -49,13 +49,13 @@ const UpdateProperties = (props) => {
                             name={'value_' + item.unique}
                             value={item.value}
                             onChange={e => change('value', e.target.value, item.unique)}
-                            placeholder="Значение..."
+                            placeholder="Value..."
                             size="sm"
                         />
                     </Col>
                     <Col>
                         <Button onClick={() => remove(item.unique)} size="sm" variant="outline-danger">
-                            Удалить
+                            Delete
                         </Button>
                         {item.change && ' *'}
                     </Col>

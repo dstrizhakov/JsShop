@@ -26,18 +26,18 @@ const BrandBar = observer(() => {
     }
 
     return (
-        <ListGroup >
+        <div>
             {catalog.brands.map(item =>
-                <ListGroup.Item
+                <p
                     key={item.id}
                     active={item.id === catalog.brand}
                     onClick={() => handleClick(item.id)}
                     style={{cursor: 'pointer'}}
                 >
                     {item.name}
-                </ListGroup.Item>
+                </p>
             )}
-        </ListGroup>
+        </div>
     )
 })
 

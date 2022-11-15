@@ -26,18 +26,18 @@ const CategoryBar = observer(() => {
     }
 
     return (
-        <ListGroup>
+        <div>
             {catalog.categories.map(item =>
-                <ListGroup.Item
+                <p
                     key={item.id}
                     active={item.id === catalog.category}
                     onClick={() => handleClick(item.id)}
                     style={{cursor: 'pointer'}}
                 >
                     {item.name}
-                </ListGroup.Item>
+                </p>
             )}
-        </ListGroup>
+        </div>
     )
 })
 

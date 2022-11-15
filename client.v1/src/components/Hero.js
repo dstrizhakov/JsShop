@@ -7,7 +7,7 @@ const Hero = () => {
                 <div className="row justify-content-center">
                     <div className="col-lg-6 text-center">
                         <h2>I'm <span>Arina Yastrebova</span> an artist from Russia</h2>
-                        <p>Let me introduce you to my paintings.</p>
+                        <p>Let me introduce you my paintings.</p>
                        {/* <a href="#" className="btn-get-started">Available for hire</a>*/}
                     </div>
                 </div>

@@ -9,6 +9,7 @@ import { fetchCategories, fetchBrands, fetchAllProducts } from '../http/catalogA
 import { observer } from 'mobx-react-lite'
 import { useLocation, useSearchParams } from 'react-router-dom'
 import Hero from "../components/Hero";
+import Slider from "../components/Slider";
 
 const getSearchParams = (searchParams) => {
     let category = searchParams.get('category')
@@ -115,7 +116,7 @@ const Shop = observer(() => {
                             <BrandBar />
                         )}
                     </div>*/}
-                    <div>
+                    <div className="">
                         {productsFetching ? (
                             <Spinner animation="border" />
                         ) : (

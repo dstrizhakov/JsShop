@@ -10,13 +10,13 @@ const isValid = (input) => {
     let pattern
     switch (input.name) {
         case 'name':
-            pattern = /^[-а-я]{2,}( [-а-я]{2,}){1,2}$/i
+            pattern = /^[-a-z]{2,}( [-a-z]{2,}){1,2}$/i
             return pattern.test(input.value.trim())
         case 'email':
             pattern = /^[-_.a-z]+@([-a-z]+\.){1,2}[a-z]+$/i
             return pattern.test(input.value.trim())
         case 'phone':
-            pattern = /^\+7 \([0-9]{3}\) [0-9]{3}-[0-9]{2}-[0-9]{2}$/i
+            pattern = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/
             return pattern.test(input.value.trim())
         case 'address':
             return input.value.trim() !== ''
@@ -60,8 +60,18 @@ const Checkout = () => {
     if (order) { // заказ был успешно оформлен
         return (
             <Container>
-                <h1 className="mb-4 mt-4">Заказ оформлен</h1>
-                <p>Наш менеджер скоро позвонит для уточнения деталей.</p>
+                <div className="mb-3">
+                    <div className="page-header d-flex align-items-center">
+                        <div className="container position-relative">
+                            <div className="row d-flex justify-content-center">
+                                <div className="col-lg-10 text-center">
+                <h1 className="mb-4 mt-4">Order is processed</h1>
+                <p>We will email you soon for details.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </Container>
         )
     }
