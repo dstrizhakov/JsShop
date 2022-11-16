@@ -9,7 +9,7 @@ const Hero = () => {
                     <div className="col-lg-6 text-center">
                         <h2>I'm <span>Arina Yastrebova</span> an artist from Russia</h2>
                         <p>Let me introduce you my paintings.</p>
-                        <NavLink to="/" className="nav-link"> Go to Catalog</NavLink>
+                        <NavLink to="/catalog" className="nav-link"> Go to Catalog</NavLink>
                     </div>
                 </div>
             </div>

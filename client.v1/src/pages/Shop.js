@@ -6,7 +6,7 @@ import { AppContext } from '../components/AppContext.js'
 import { fetchCategories, fetchBrands, fetchAllProducts } from '../http/catalogAPI.js'
 import { observer } from 'mobx-react-lite'
 import { useLocation, useSearchParams } from 'react-router-dom'
-import Hero from "../components/Hero";
+
 
 const getSearchParams = (searchParams) => {
     let category = searchParams.get('category')
@@ -95,7 +95,9 @@ const Shop = observer(() => {
     }, [catalog.category, catalog.brand, catalog.page])
 
     return (
+
         <Container className="page-header">
+            <h2 className="text-center">Catalog</h2>
             <Row className="mt-0">
                 <Col md={2} className="mb-3">
                     {categoriesFetching||brandsFetching ? (

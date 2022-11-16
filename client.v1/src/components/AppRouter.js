@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import {Routes, Route, useLocation} from 'react-router-dom'
 import Shop from '../pages/Shop.js'
 import Login from '../pages/Login.js'
 import Signup from '../pages/Signup.js'
@@ -18,9 +18,10 @@ import AdminCategories from '../pages/AdminCategories.js'
 import AdminBrands from '../pages/AdminBrands.js'
 import AdminProducts from '../pages/AdminProducts.js'
 import { AppContext } from './AppContext.js'
-import { useContext } from 'react'
+import {useContext, useEffect, useState} from 'react'
 import { observer } from 'mobx-react-lite'
 import Start from "../pages/Start";
+
 
 const publicRoutes = [
     {path: '/', Component: Start},
@@ -52,8 +53,27 @@ const adminRoutes = [
 
 const AppRouter = observer(() => {
     const { user } = useContext(AppContext)
+    const location = useLocation();
+    const [displayLocation, setDisplayLocation] = useState(location);
+    const [transitionStage, setTransistionStage] = useState("fadeIn");
+
+    useEffect(() => {
+        if (location !== displayLocation) {
+            setTransistionStage("fadeOut")};
+    }, [location, displayLocation]);
+
+
     return (
-        <Routes>
+        <div
+            className={`${transitionStage}`}
+            onAnimationEnd={() => {
+                if (transitionStage === "fadeOut") {
+                    setTransistionStage("fadeIn");
+                    setDisplayLocation(location);
+                }
+            }}
+        >
+        <Routes location={displayLocation}>
             {publicRoutes.map(({path, Component}) =>
                 <Route key={path} path={path} element={<Component />} />
             )}
@@ -64,6 +84,7 @@ const AppRouter = observer(() => {
                 <Route key={path} path={path} element={<Component />} />
             )}
         </Routes>
+        </div>
     )
 })
 

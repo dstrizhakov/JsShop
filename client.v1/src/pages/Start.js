@@ -26,7 +26,9 @@ const Start = observer(() => {
             <div className="mt-5 m-auto bg-dark">
                 <Slider products={catalog.products}/>
             </div>
-            <Hero/>
+            <div className="bg-light">
+                <Hero/>
+            </div>
         </>
     );
 });

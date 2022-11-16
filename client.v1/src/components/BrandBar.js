@@ -20,7 +20,7 @@ const BrandBar = observer(() => {
         if (catalog.brand) params.brand = catalog.brand
         if (catalog.page > 1) params.page = catalog.page
         navigate({
-            pathname: '/',
+            pathname: '/catalog',
             search: '?' + createSearchParams(params),
         })
     }
