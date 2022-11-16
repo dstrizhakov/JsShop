@@ -16,6 +16,7 @@ const Header = observer(() => {
                 </NavLink>
                 <nav id="navbar" className="navbar">
                     <ul>
+                        <li><NavLink to="/catalog" className="nav-link">Catalog</NavLink></li>
                         <li><NavLink to="/delivery" className="nav-link">Shipping</NavLink></li>
                         <li><NavLink to="/contacts" className="nav-link">Contact</NavLink></li>
                         <FetchBasket>

@@ -40,7 +40,6 @@ const ProductList = observer(() => {
     return (
         <>
             <Row className="mb-3">
-                <Slider products={catalog.products}/>
                 {catalog.products.length ? (
                     catalog.products.map(item =>
                         <ProductItem key={item.id} data={item} />

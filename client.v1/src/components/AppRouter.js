@@ -20,9 +20,11 @@ import AdminProducts from '../pages/AdminProducts.js'
 import { AppContext } from './AppContext.js'
 import { useContext } from 'react'
 import { observer } from 'mobx-react-lite'
+import Start from "../pages/Start";
 
 const publicRoutes = [
-    {path: '/', Component: Shop},
+    {path: '/', Component: Start},
+    {path: '/catalog', Component: Shop},
     {path: '/login', Component: Login},
     {path: '/signup', Component: Signup},
     {path: '/product/:id', Component: Product},

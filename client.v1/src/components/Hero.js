@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from "react-router-dom";
 
 const Hero = () => {
     return (
@@ -8,7 +9,7 @@ const Hero = () => {
                     <div className="col-lg-6 text-center">
                         <h2>I'm <span>Arina Yastrebova</span> an artist from Russia</h2>
                         <p>Let me introduce you my paintings.</p>
-                       {/* <a href="#" className="btn-get-started">Available for hire</a>*/}
+                        <NavLink to="/" className="nav-link"> Go to Catalog</NavLink>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,5 @@
 import { Container, Row, Col, Spinner } from 'react-bootstrap'
-import CategoryBar from '../components/CategoryBar.js'
 import Filters from "../components/Filters";
-import BrandBar from '../components/BrandBar.js'
 import ProductList from '../components/ProductList.js'
 import { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../components/AppContext.js'
@@ -9,7 +7,6 @@ import { fetchCategories, fetchBrands, fetchAllProducts } from '../http/catalogA
 import { observer } from 'mobx-react-lite'
 import { useLocation, useSearchParams } from 'react-router-dom'
 import Hero from "../components/Hero";
-import Slider from "../components/Slider";
 
 const getSearchParams = (searchParams) => {
     let category = searchParams.get('category')
@@ -99,7 +96,6 @@ const Shop = observer(() => {
 
     return (
         <Container className="page-header">
-            <Hero/>
             <Row className="mt-0">
                 <Col md={2} className="mb-3">
                     {categoriesFetching||brandsFetching ? (
@@ -109,13 +105,6 @@ const Shop = observer(() => {
                     )}
                 </Col>
                 <Col md={9}>
-                  {/*  <div>
-                        {brandsFetching ? (
-                            <Spinner animation="border" />
-                        ) : (
-                            <BrandBar />
-                        )}
-                    </div>*/}
                     <div className="">
                         {productsFetching ? (
                             <Spinner animation="border" />

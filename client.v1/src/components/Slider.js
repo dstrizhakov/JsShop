@@ -10,15 +10,14 @@ const Slider = ({products}) => {
     return (
         <Carousel activeIndex={index} onSelect={handleSelect}>
             {products.map(item=>
-                <Carousel.Item>
+                <Carousel.Item className="slider">
                     <img
-                        className="d-block w-100"
+                        className="d-block m-auto rounded-3"
                         src={process.env.REACT_APP_IMG_URL + item.image}
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3>{item.name}</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            <h4>{item.name}</h4>
                     </Carousel.Caption>
                 </Carousel.Item>
             )
