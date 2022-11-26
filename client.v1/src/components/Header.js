@@ -5,7 +5,7 @@ import {NavLink} from "react-router-dom";
 import FetchBasket from "./FetchBasket";
 import CheckAuth from "./CheckAuth";
 import logo from "../assets/logo.png"
-import {Nav, Navbar} from "react-bootstrap";
+import {Container, Nav, Navbar} from "react-bootstrap";
 
 const Header = observer(() => {
     const { user, basket } = useContext(AppContext)
@@ -19,7 +19,7 @@ const Header = observer(() => {
                 </Navbar.Brand>
                 <Navbar.Toggle className="me-3" aria-controls="responsive-navbar-nav"/>
                 <Navbar.Collapse  id="responsive-navbar-nav">
-                    <Nav className="navbar justify-content-end">
+                    <Nav className="navbar">
                         <NavLink to="/catalog" className="nav-link">Catalog</NavLink>
                         <NavLink to="/delivery" className="nav-link">Shipping</NavLink>
                         <NavLink to="/contacts" className="nav-link">Contact</NavLink>

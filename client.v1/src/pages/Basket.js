@@ -7,7 +7,7 @@ const Basket = () => {
             <div className="container position-relative">
                 <div className="row d-flex justify-content-center">
                     <div className="col-lg-10 text-center">
-            <h2 >Basket</h2>
+            <h1>Basket</h1>
             <BasketList />
                     </div>
                 </div>

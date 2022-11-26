@@ -26,9 +26,10 @@ const Start = observer(() => {
             <Container fluid>
                 <Slider products={catalog.products}/>
             </Container>
-            <div className="bg-light">
+            <Container>
                 <Hero/>
-            </div>
+            </Container>
+
         </>
     );
 });

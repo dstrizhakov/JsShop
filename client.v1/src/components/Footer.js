@@ -3,7 +3,7 @@ import {Container} from "react-bootstrap";
 
 const Footer = () => {
     return (
-        <Container fluid className="footer"  style={{backgroundColor: "#f1f1f1"}}>
+        <Container fluid className="footer bg-light">
                 <div className="footer-social-links">
                     <a href="https://twitter.com/arinayastrebova" target="_blank" className="twitter"><i className="bi bi-twitter"></i></a>
                     <a href="https://www.facebook.com/ArinaYastrebovaStore/" target="_blank" className="facebook"><i className="bi bi-facebook"></i></a>

@@ -97,16 +97,16 @@ const Shop = observer(() => {
     return (
 
         <Container className="page-header">
-            <h2 className="text-center">Catalog</h2>
+            <h1 className="text-center">Catalog</h1>
+            <Col md={2} className="mb-3">
+                {categoriesFetching||brandsFetching ? (
+                    <Spinner animation="border" />
+                ) : (
+                    <Filters/>
+                )}
+            </Col>
             <Row className="mt-0">
-                <Col md={2} className="mb-3">
-                    {categoriesFetching||brandsFetching ? (
-                        <Spinner animation="border" />
-                    ) : (
-                        <Filters/>
-                    )}
-                </Col>
-                <Col md={10}>
+                <Col>
                         {productsFetching ? (
                             <Spinner animation="border" />
                         ) : (

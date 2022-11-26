@@ -104,15 +104,14 @@ h6 {
 
 
 .page-header {
-
-    padding: 20px 0 60px 0;
+    padding: 20px 0;
     min-height: 20vh;
     background-color: var(--background-main);
     position: relative;
 }
 
-.page-header h2 {
-
+.page-header h1 {
+    margin-bottom: 40px;
     font-size: 38px;
     font-weight: 700;
     color: var(--color-default);
@@ -327,10 +326,13 @@ h6 {
 --------------------------------------------------------------*/
 .header {
     transition: all 0.5s;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 70px;
     z-index: 997;
     color: var(--color-default);
     border-bottom:1px solid rgba(29, 31, 32, 0.1);
-    /*box-shadow: 0px 0px 5px rgba(29, 31, 32, 0.22);*/
+    /*box-shadow: 0px 0px 5px rgba(29, 31, 32, 0.1);*/
 }
 
 .header .logo {
@@ -375,7 +377,7 @@ h6 {
 --------------------------------------------------------------*/
 .footer{
     border-top:1px solid rgba(29, 31, 32, 0.1);
-    height: 50px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -406,7 +408,8 @@ h6 {
 # Desktop Navigation
 --------------------------------------------------------------*/
 .navbar {
-    padding: 0;
+    padding: 0 20px;
+
 
 }
 .navbar a,
@@ -1354,13 +1357,14 @@ h6 {
 }*/
 
 .slider {
-    padding: 20px 0px;
+    padding: 0px 0px;
     width: 100vw;
+
 }
 .slider img{
-
-    height: 75vh;
-
+    width: 100vw;
+    height: 500px;
+ object-fit: cover;
 }
 
 /*--------------------------------------------------------------

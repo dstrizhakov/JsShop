@@ -20,7 +20,7 @@ const User = () => {
                 <div className="container position-relative">
                     <div className="row d-flex justify-content-center">
                         <div className="col-lg-10 text-center">
-            <h2>User panel</h2>
+            <h1>User panel</h1>
            {/* <p>
                 Это личный кабинет постоянного покупателя магазина
             </p>*/}

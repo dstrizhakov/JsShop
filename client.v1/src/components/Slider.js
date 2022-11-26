@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Carousel} from "react-bootstrap";
+import {Carousel, Container} from "react-bootstrap";
 import Hero from "./Hero";
 
 const Slider = ({products}) => {
@@ -9,7 +9,7 @@ const Slider = ({products}) => {
         setIndex(selectedIndex);
     }
     return (
-        <Carousel variant="dark" indicators={false} interval={6000} activeIndex={index} onSelect={handleSelect}>
+        <Carousel className="bg-dark" variant="dark" indicators={false} interval={6000} activeIndex={index} onSelect={handleSelect}>
             {products.map(item=>
                 <Carousel.Item className="slider">
                     <img

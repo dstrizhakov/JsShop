@@ -8,44 +8,16 @@ const Contact = () => {
                 <div className="container position-relative">
                     <div className="row d-flex justify-content-center">
                         <div className="col-lg-10 text-center">
-                            <h2>Contact</h2>
-                            <p>For any inquiries, feel free to contact us using the form below or drop us an email.
+                            <h1>Contact</h1>
+                            <p>For any inquiries, feel free to contact us using the form below or drop us an email:
                             </p>
+                            <p><a href="mailto:arina.yastrebova@mail.ru">arina.yastrebova@mail.ru</a></p>
                         </div>
                     </div>
                 </div>
             </div>
             <section id="contact" className="contact">
                 <div className="container">
-                    <div className="row gy-4 justify-content-center">
-                        <div className="col-lg-3">
-                            <div className="info-item d-flex">
-                                <i className="bi bi-geo-alt flex-shrink-0"></i>
-                                <div>
-                                    <h4>Location:</h4>
-                                    <p>A108 Adam Street, New York, NY 535022</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3">
-                            <div className="info-item d-flex">
-                                <i className="bi bi-envelope flex-shrink-0"></i>
-                                <div>
-                                    <h4>Email:</h4>
-                                    <p><a href="mailto:arina.yastrebova@mail.ru">arina.yastrebova@mail.ru</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3">
-                            <div className="info-item d-flex">
-                                <i className="bi bi-phone flex-shrink-0"></i>
-                                <div>
-                                    <h4>Call:</h4>
-                                    <p>+1 5589 55488 55</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div className="row mt-4 justify-content-center">
                         <div className="col-lg-9">
                             <form action="#" method="post" role="form" className="php-email-form">
