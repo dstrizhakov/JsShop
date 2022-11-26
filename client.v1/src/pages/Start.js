@@ -23,9 +23,9 @@ const Start = observer(() => {
     }, [])
     return (
         <>
-            <div className="mt-5 m-auto bg-dark">
+            <Container fluid>
                 <Slider products={catalog.products}/>
-            </div>
+            </Container>
             <div className="bg-light">
                 <Hero/>
             </div>

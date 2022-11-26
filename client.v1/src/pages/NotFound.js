@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container'
 const NotFound = () => {
     return (
         <Container>
-            <h1>Страница не найдена</h1>
+            <h1 className="text-center">404 Page not found</h1>
         </Container>
     )
 }

@@ -19,14 +19,22 @@ const BrandBar = observer(() => {
         if (catalog.category) params.category = catalog.category
         if (catalog.brand) params.brand = catalog.brand
         if (catalog.page > 1) params.page = catalog.page
-        navigate({
-            pathname: '/catalog',
-            search: '?' + createSearchParams(params),
-        })
+        if (params.brand === 0) {
+            navigate({
+                pathname: '/catalog',
+            })
+        } else {
+            navigate({
+                pathname: '/catalog',
+                search: '?' + createSearchParams(params),
+            })
+        }
+
     }
 
     return (
         <div>
+            <p style={{cursor: 'pointer'}} onClick={() => handleClick(0)}>All</p>
             {catalog.brands.map(item =>
                 <p
                     key={item.id}

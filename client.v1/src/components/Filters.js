@@ -12,7 +12,7 @@ const Filters = () => {
             <p className="mt-3 mb-1 text-center">Type filter</p>
             <BrandBar/>
         </div>*/}
-            <Accordion defaultActiveKey={['0']} alwaysOpen>
+            <Accordion style={{minWidth: '150px'}} defaultActiveKey={['0']} alwaysOpen>
                 <Accordion.Item eventKey="0">
                     <Accordion.Header>Category</Accordion.Header>
                     <Accordion.Body>

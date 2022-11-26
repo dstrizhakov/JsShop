@@ -19,14 +19,22 @@ const CategoryBar = observer(() => {
         if (catalog.category) params.category = catalog.category
         if (catalog.brand) params.brand = catalog.brand
         if (catalog.page > 1) params.page = catalog.page
-        navigate({
-            pathname: '/catalog',
-            search: '?' + createSearchParams(params),
-        })
+        if (params.category === 0) {
+            navigate({
+                pathname: '/catalog'
+            })
+        } else {
+            navigate({
+                pathname: '/catalog',
+                search: '?' + createSearchParams(params),
+            })
+        }
+
     }
 
     return (
         <div>
+            <p style={{cursor: 'pointer'}} onClick={() => handleClick(0)}>All</p>
             {catalog.categories.map(item =>
                 <p
                     key={item.id}

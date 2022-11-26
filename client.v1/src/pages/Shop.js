@@ -106,14 +106,12 @@ const Shop = observer(() => {
                         <Filters/>
                     )}
                 </Col>
-                <Col md={9}>
-                    <div className="">
+                <Col md={10}>
                         {productsFetching ? (
                             <Spinner animation="border" />
                         ) : (
                             <ProductList />
                         )}
-                    </div>
                 </Col>
             </Row>
         </Container>
