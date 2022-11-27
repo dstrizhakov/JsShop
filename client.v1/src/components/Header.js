@@ -11,17 +11,17 @@ const Header = observer(() => {
     const { user, basket } = useContext(AppContext)
     return (
         <>
-            <Navbar collapseOnSelect ollapseOnSelect expand="md" bg="light" className="header p-0" >
+            <Navbar collapseOnSelect expand="md" bg="light" className="header" >
                 <Navbar.Brand className="logo">
                     <NavLink to="/">
                         <img src={logo} alt="Arina Yastrebova"/>
                     </NavLink>
                 </Navbar.Brand>
                 <Navbar.Toggle className="me-3" aria-controls="responsive-navbar-nav"/>
-                <Navbar.Collapse  id="responsive-navbar-nav">
-                    <Nav className="navbar">
+                <Navbar.Collapse className="navbar-links"  id="responsive-navbar-nav">
+                    <Nav>
                         <NavLink to="/catalog" className="nav-link">Catalog</NavLink>
-                        <NavLink to="/delivery" className="nav-link">Shipping</NavLink>
+                        <NavLink to="/delivery" className="nav-link">Delivery</NavLink>
                         <NavLink to="/contacts" className="nav-link">Contact</NavLink>
                             <FetchBasket>
                                 <NavLink to="/basket" className="nav-link">

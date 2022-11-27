@@ -326,8 +326,6 @@ h6 {
 --------------------------------------------------------------*/
 .header {
     transition: all 0.5s;
-    justify-content: space-between;
-    align-items: center;
     min-height: 70px;
     z-index: 997;
     color: var(--color-default);
@@ -336,6 +334,7 @@ h6 {
 }
 
 .header .logo {
+    margin-left: 10px;
     font-family: var(--font-primary);
     font-weight: 400;
     color: var(--color-default);
@@ -407,16 +406,16 @@ h6 {
 /*--------------------------------------------------------------
 # Desktop Navigation
 --------------------------------------------------------------*/
-.navbar {
+.navbar-links {
     padding: 0 20px;
-
+   justify-content: flex-end;
 
 }
-.navbar a,
-.navbar a:focus {
+.navbar-links a,
+.navbar-links a:focus {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 10px 0 10px 30px;
     font-family: var(--font-primary);
     text-transform: uppercase;

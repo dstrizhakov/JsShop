@@ -7,7 +7,7 @@ const Delivery = () => {
             <div className="container position-relative">
                 <div className="row d-flex justify-content-center">
                     <div className="col-lg-10 text-center">
-                        <h1>Shipping Policy</h1>
+                        <h1>Delivery</h1>
                         <p>Shipping is included in the price of the goods. I ship the goods within 1-3 business days
                             after payment. Delivery times depend on the country and the workload of postal services.
                             Usually delivery around the world takes from 2 to 4 weeks. During the holiday months,

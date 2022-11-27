@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from 'react'
 import { AppContext } from './AppContext.js'
-import { fetchBasket, increment, decrement, remove } from '../http/basketAPI.js'
+import {fetchBasket, increment, decrement, remove, clear} from '../http/basketAPI.js'
 import { Table, Spinner, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import BasketItem from './BasketItem.js'
@@ -11,6 +11,16 @@ const BasketList = observer(() => {
     const [fetching, setFetching] = useState(true)
 
     const navigate = useNavigate()
+
+    const handleClean = () => {
+        setFetching(true)
+        clear()
+            .then(r => console.log("Basket cleared")
+        )
+            .finally(
+            () => setFetching(false)
+        )
+    }
 
     const handleIncrement = (id) => {
         setFetching(true)

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 const ProductItem = ({data}) => {
     const navigate = useNavigate()
     return (
-        <Col xl={4} lg={6} sm={9} className="mb-3" onClick={() => navigate(`/product/${data.id}`)}>
+        <Col xl={4} lg={6} sm={12} className="mb-3" onClick={() => navigate(`/product/${data.id}`)}>
             <Card style={{cursor: "pointer"}}>
                 {data.image ? (
                     <>

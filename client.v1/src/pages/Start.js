@@ -23,9 +23,7 @@ const Start = observer(() => {
     }, [])
     return (
         <>
-            <Container fluid>
                 <Slider products={catalog.products}/>
-            </Container>
             <Container>
                 <Hero/>
             </Container>

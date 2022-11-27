@@ -1,11 +1,15 @@
 import { Container, Row, Col, Spinner } from 'react-bootstrap'
 import Filters from "../components/Filters";
 import ProductList from '../components/ProductList.js'
-import { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../components/AppContext.js'
 import { fetchCategories, fetchBrands, fetchAllProducts } from '../http/catalogAPI.js'
 import { observer } from 'mobx-react-lite'
 import { useLocation, useSearchParams } from 'react-router-dom'
+import CategoryBar from "../components/CategoryBar";
+import BrandBar from "../components/BrandBar";
+import CategoryFilter from "../components/CategoryFilter";
+import BaseComponent from "bootstrap/js/src/base-component";
 
 
 const getSearchParams = (searchParams) => {
@@ -95,26 +99,33 @@ const Shop = observer(() => {
     }, [catalog.category, catalog.brand, catalog.page])
 
     return (
-
-        <Container className="page-header">
-            <h1 className="text-center">Catalog</h1>
-            <Col md={2} className="mb-3">
+    <Container className="page-header">
+        <h1 className="text-center">Catalog</h1>
+        {/* */}
+        {/* <Col md={2} className="mb-3">
                 {categoriesFetching||brandsFetching ? (
                     <Spinner animation="border" />
                 ) : (
                     <Filters/>
                 )}
+            </Col>*/}
+        <Row >
+            {categoriesFetching||brandsFetching ? (
+                <Spinner animation="border" />
+            ) : (
+                <CategoryFilter/>
+            )}
+        </Row>
+        <Row className="mt-3">
+            <Col>
+                {productsFetching ? (
+                    <Spinner animation="border" />
+                ) : (
+                    <ProductList />
+                )}
             </Col>
-            <Row className="mt-0">
-                <Col>
-                        {productsFetching ? (
-                            <Spinner animation="border" />
-                        ) : (
-                            <ProductList />
-                        )}
-                </Col>
-            </Row>
-        </Container>
+        </Row>
+    </Container>
     )
 })
 

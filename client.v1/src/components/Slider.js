@@ -9,11 +9,11 @@ const Slider = ({products}) => {
         setIndex(selectedIndex);
     }
     return (
-        <Carousel className="bg-dark" variant="dark" indicators={false} interval={6000} activeIndex={index} onSelect={handleSelect}>
+        <Carousel variant="dark" indicators={false} controls={false} interval={6000} activeIndex={index} onSelect={handleSelect}>
             {products.map(item=>
-                <Carousel.Item className="slider">
+                <Carousel.Item key={item.id} className="slider">
                     <img
-                        className="d-block m-auto rounded-3"
+                        className="d-block m-auto"
                         src={process.env.REACT_APP_IMG_URL + item.image}
                         alt="First slide"
                     />

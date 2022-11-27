@@ -1,8 +1,9 @@
-import { ListGroup } from 'react-bootstrap'
+import {Button, ListGroup} from 'react-bootstrap'
 import { useContext } from 'react'
 import { AppContext } from './AppContext.js'
 import { observer } from 'mobx-react-lite'
 import { useNavigate, createSearchParams } from 'react-router-dom'
+import Form from "react-bootstrap/Form";
 
 const BrandBar = observer(() => {
     const { catalog } = useContext(AppContext)
@@ -33,7 +34,17 @@ const BrandBar = observer(() => {
     }
 
     return (
-        <div>
+        <>
+              {/*  <Form.Select aria-label="Type">
+                <option defaultChecked >All</option>
+                {catalog.brands.map (item => <option
+                    key={item.id}
+                    value = {`${item.name}`}
+                    onChange={() => handleClick(item.id)}
+                >{item.name}</option>)
+                }
+            </Form.Select>*/}
+
             <p style={{cursor: 'pointer'}} onClick={() => handleClick(0)}>All</p>
             {catalog.brands.map(item =>
                 <p
@@ -45,7 +56,7 @@ const BrandBar = observer(() => {
                     {item.name}
                 </p>
             )}
-        </div>
+        </>
     )
 })
 

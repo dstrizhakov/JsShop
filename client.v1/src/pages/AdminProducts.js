@@ -59,11 +59,15 @@ const AdminProducts = () => {
                     } else {
                         setChange(!change)
                     }
-                    alert(`Item «${data.name}» was deleted`)
+                    console.log(`Item «${data.name}» was deleted`)
+                   /* alert(`Item «${data.name}» was deleted`)*/
                 }
             )
             .catch(
-                error => alert(error.response.data.message)
+                error => {
+                    console.log(error.response.data.message)
+                    /*alert(error.response.data.message)*/
+                }
             )
     }
 
