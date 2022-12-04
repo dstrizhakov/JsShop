@@ -28,9 +28,9 @@ const Signup = observer(() => {
     }
 
     return (
-        <Container className="d-flex justify-content-center section">
+        <Container className="d-flex justify-content-center mt-5">
             <Card className="p-4 mt-3 bg-light">
-                <h3 className="m-auto">Sign up</h3>
+                <h3 className="m-auto">Sign Up</h3>
                 <Form className="d-flex flex-column" onSubmit={handleSubmit}>
                     <Form.Control
                         name="email"
@@ -43,13 +43,13 @@ const Signup = observer(() => {
                         placeholder="Password"
                     />
                     <div className="d-flex justify-content-between align-items-center mt-3 pl-3 pr-3">
-                        <Button className="me-4" type="submit">
-                            Sign up
+                        <Button className='me-3' type="submit">
+                            Sign Up
                         </Button>
                         <p className="mb-0">
-                            Already have an account?
+                            Have an account?
                             <span>  </span>
-                            <Link to="/login">Sign in!</Link>
+                            <Link to="/login">Sign In!</Link>
                         </p>
                     </div>
                 </Form>

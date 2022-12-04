@@ -1,15 +1,14 @@
-import { Container, Row, Col, Spinner } from 'react-bootstrap'
-import Filters from "../components/Filters";
+import { Container, Row, Col } from 'react-bootstrap'
 import ProductList from '../components/ProductList.js'
 import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../components/AppContext.js'
 import { fetchCategories, fetchBrands, fetchAllProducts } from '../http/catalogAPI.js'
 import { observer } from 'mobx-react-lite'
 import { useLocation, useSearchParams } from 'react-router-dom'
-import CategoryBar from "../components/CategoryBar";
-import BrandBar from "../components/BrandBar";
 import CategoryFilter from "../components/CategoryFilter";
-import BaseComponent from "bootstrap/js/src/base-component";
+import Filters from "../components/Filters"
+
+import Loading from '../components/Loading';
 
 
 const getSearchParams = (searchParams) => {
@@ -66,7 +65,6 @@ const Shop = observer(() => {
     // «Назад» браузера — мы отслеживаем изменение GET-параметров и изменяем состояние хранилища.
     useEffect(() => {
         const {category, brand, page} = getSearchParams(searchParams)
-
         if (category || brand || page) {
             if (category !== catalog.category) {
                 catalog.category = category
@@ -101,30 +99,29 @@ const Shop = observer(() => {
     return (
     <Container className="page-header">
         <h1 className="text-center">Catalog</h1>
-        {/* */}
-        {/* <Col md={2} className="mb-3">
-                {categoriesFetching||brandsFetching ? (
-                    <Spinner animation="border" />
-                ) : (
-                    <Filters/>
-                )}
-            </Col>*/}
-        <Row >
-            {categoriesFetching||brandsFetching ? (
-                <Spinner animation="border" />
-            ) : (
+        { categoriesFetching||brandsFetching||productsFetching 
+            ? <Loading/>
+            : 
+            <>
+                <Row >
                 <CategoryFilter/>
-            )}
+                </Row>
+                <ProductList />
+            </>
+}
+
+        {/* <Row >
+            { categoriesFetching||brandsFetching 
+            ? <Loading/>
+            : <CategoryFilter/>
+            }
         </Row>
         <Row className="mt-3">
-            <Col>
-                {productsFetching ? (
-                    <Spinner animation="border" />
-                ) : (
-                    <ProductList />
-                )}
-            </Col>
-        </Row>
+                { productsFetching 
+                ? <Loading/>
+                : <ProductList />
+                }
+        </Row> */}
     </Container>
     )
 })

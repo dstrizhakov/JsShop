@@ -1,17 +1,32 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {observer} from "mobx-react-lite";
 import {AppContext} from "./AppContext";
 import {createSearchParams, useNavigate} from "react-router-dom";
 import Form from 'react-bootstrap/Form';
-import {Button, Col, Container} from "react-bootstrap";
+import { Col, Container} from "react-bootstrap";
+import { useSearchParams } from "react-router-dom";
 
 const CategoryFilter = observer(() => {
 
     const { catalog } = useContext(AppContext)
     const navigate = useNavigate()
-    console.log(navigate)
+
+    const [selectedCategory, setSelectedCategory] = useState()
+    const [selectedType, setSelectedType] = useState()
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    // // TODO заполнять Select при загрузке страницы по selectedCategoryType
+    // useEffect(()=>{
+    //     const category = searchParams.get("category");
+    //     const type = searchParams.get("brand");
+    //     setSelectedCategoryType([category, type]);
+    //     navigate({
+    //         pathname: '/catalog'
+    //     })
+    // }, [])
 
     const onClickCategory = (id) => {
+        setSelectedCategory(id);
         if (id === catalog.category) {
             catalog.category = null
         } else {
@@ -35,6 +50,7 @@ const CategoryFilter = observer(() => {
 
     }
     const onClickType = (id) => {
+        setSelectedType(id);
         if (id === catalog.brand) {
             catalog.brand = null
         } else {
@@ -45,7 +61,6 @@ const CategoryFilter = observer(() => {
         if (catalog.category) params.category = catalog.category
         if (catalog.brand) params.brand = catalog.brand
         if (catalog.page > 1) params.page = catalog.page
-        console.log(params.brand)
         if (params.brand == 0) {
             navigate({
                 pathname: '/catalog',
@@ -58,13 +73,12 @@ const CategoryFilter = observer(() => {
         }
 
     }
-
     return (
         <Container>
             <Form className="d-flex justify-content-center align-items-center justify-content-sm-start">
                 <Form.Group as={Col} lg="2" md="3" sm="4" controlId="categorySelect">
-                    <Form.Select size="sm" aria-label="Category" onChange={(e)=>onClickCategory(e.target.value)}>
-                        <option defaultChecked value={0}>All categories</option>
+                    <Form.Select value={catalog.category||0} size="sm" aria-label="Category" onChange={(e)=>onClickCategory(e.target.value)}>
+                        <option value={0}>All categories</option>
                         {catalog.categories.map (item => <option
                             key={item.id}
                             value = {item.id}
@@ -73,7 +87,7 @@ const CategoryFilter = observer(() => {
                     </Form.Select>
                 </Form.Group>
                 <Form.Group as={Col} lg="2" md="3" sm="4" className="mx-3" controlId="typeSelect">
-                    <Form.Select size="sm" aria-label="Type" onChange={(e)=>onClickType(e.target.value)}>
+                    <Form.Select value={catalog.brand||0} size="sm" aria-label="Type" onChange={(e)=>onClickType(e.target.value)}>
                         <option defaultChecked value={0} >All types</option>
                         {catalog.brands.map (item => <option
                             key={item.id}

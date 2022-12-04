@@ -8,9 +8,10 @@ const Hero = () => {
                     <div className="text-center">
                         <h2>I'm <span>Arina Yastrebova</span> an artist from Russia</h2>
                         <p>Let me introduce you my paintings.</p>
-                        <NavLink to="/catalog" className="nav-link"> Go to Catalog</NavLink>
+                        
                     </div>
                 </div>
+                <NavLink to="/catalog" className="nav-link">Go to Catalog</NavLink>
         </section>
     );
 };

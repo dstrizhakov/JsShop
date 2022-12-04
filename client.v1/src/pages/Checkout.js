@@ -1,10 +1,11 @@
-import { Container, Form, Button, Spinner } from 'react-bootstrap'
+import { Container, Form, Button} from 'react-bootstrap'
 import { useState, useContext, useEffect } from 'react'
 import { AppContext } from '../components/AppContext.js'
 import { userCreate, guestCreate } from '../http/orderAPI.js'
 import { fetchBasket } from '../http/basketAPI.js'
 import { check as checkAuth } from '../http/userAPI.js'
 import { Navigate } from 'react-router-dom'
+import Loading from '../components/Loading.js'
 
 const isValid = (input) => {
     let pattern
@@ -54,7 +55,7 @@ const Checkout = () => {
     }, [])
 
     if (fetching) { // loader, пока получаем корзину
-        return <Spinner animation="border" />
+        return <Loading />
     }
 
     if (order) { // заказ был успешно оформлен
@@ -65,7 +66,7 @@ const Checkout = () => {
                         <div className="container position-relative">
                             <div className="row d-flex justify-content-center">
                                 <div className="col-lg-10 text-center">
-                <h1 className="mb-4 mt-4">Order is processed</h1>
+                <h1 className="mb-4 mt-4 text-center">Order is processed</h1>
                 <p>We will email you soon for details.</p>
                                 </div>
                             </div>

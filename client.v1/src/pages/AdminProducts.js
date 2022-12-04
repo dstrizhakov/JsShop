@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import { fetchAllProducts, deleteProduct } from '../http/catalogAPI.js'
-import {Button, Container, Spinner, Table, Pagination, Image} from 'react-bootstrap'
+import {Button, Container, Table, Pagination} from 'react-bootstrap'
 import CreateProduct from '../components/CreateProduct.js'
 import UpdateProduct from '../components/UpdateProduct.js'
+import Loading from '../components/Loading.js'
 
 // количество товаров на страницу
 const ADMIN_PER_PAGE = 6
@@ -85,7 +86,7 @@ const AdminProducts = () => {
     }, [change, currentPage])
 
     if (fetching) {
-        return <Spinner animation="border" />
+        return <Loading />
     }
 
     return (

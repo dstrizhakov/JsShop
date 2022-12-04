@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { userGetOne as getOneOrder } from '../http/orderAPI.js'
-import { Container, Spinner } from 'react-bootstrap'
+import { Button, Container, Spinner } from 'react-bootstrap'
 import Order from '../components/Order.js'
 import { useParams } from 'react-router-dom'
 
@@ -32,9 +32,11 @@ const UserOrder = () => {
     }
 
     return (
-        <Container className="section">
+        <Container className="page-header">
+      
             <h1>Order № {order.id}</h1>
             <Order data={order} admin={false} />
+            
         </Container>
     )
 }

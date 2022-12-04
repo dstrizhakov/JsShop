@@ -38,7 +38,7 @@ const ProductList = observer(() => {
 
     return (
         <>
-            <Row className="mb-3 justify-content-center">
+            <Row className="mb-3 mt-3 justify-content-center">
                 {catalog.products.length ? (
                     catalog.products.map(item =>
                         <ProductItem key={item.id} data={item} />

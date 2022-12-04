@@ -16,9 +16,9 @@ const CreateProperties = (props) => {
 
     return (
         <>
-            <h5>Характеристики</h5>
+            <h5>Details</h5>
             <Button onClick={append} variant="outline-primary" size="sm" className="mb-2">
-                Добавить
+                Add
             </Button>
             {properties.map(item => 
                 <Row key={item.number} className="mb-2">
@@ -27,7 +27,7 @@ const CreateProperties = (props) => {
                             name={'name_' + item.number}
                             value={item.name}
                             onChange={e => change('name', e.target.value, item.number)}
-                            placeholder="Название..."
+                            placeholder="Title..."
                             size="sm"
                         />
                     </Col>
@@ -36,13 +36,13 @@ const CreateProperties = (props) => {
                             name={'value_' + item.number}
                             value={item.value}
                             onChange={e => change('value', e.target.value, item.number)}
-                            placeholder="Значение..."
+                            placeholder="Text..."
                             size="sm"
                         />
                     </Col>
                     <Col>
                         <Button onClick={() => remove(item.number)} size="sm" variant="outline-danger">
-                            Удалить
+                            Delete
                         </Button>
                     </Col>
                 </Row>

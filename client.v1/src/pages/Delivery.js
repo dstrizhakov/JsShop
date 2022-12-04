@@ -1,5 +1,6 @@
 import Container from 'react-bootstrap/Container'
 import React from "react";
+import {NavLink} from "react-router-dom";
 
 const Delivery = () => {
     return (
@@ -12,8 +13,8 @@ const Delivery = () => {
                             after payment. Delivery times depend on the country and the workload of postal services.
                             Usually delivery around the world takes from 2 to 4 weeks. During the holiday months,
                             sometimes parcels are delayed for another week.</p>
-                        <p>You can always contact me to clarify the status of the shipment, I track all my shipments. In
-                            case of mail errors and the loss of the parcel, I will refund you the paid cost in full.</p>
+                        <p>You can always contact me to clarify the status of the shipment, I track all my shipments.</p>
+                        <NavLink to="/contacts" className="nav-link">Contact me</NavLink>
                     </div>
                 </div>
             </div>

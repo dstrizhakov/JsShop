@@ -5,7 +5,7 @@ const CreateOrder = (props) => {
     return (
         <Modal show={show} onHide={() => setShow(false)}>
             <Modal.Header closeButton>
-                <Modal.Title>Новый заказ</Modal.Title>
+                <Modal.Title>New order</Modal.Title>
             </Modal.Header>
 
             <Modal.Body>

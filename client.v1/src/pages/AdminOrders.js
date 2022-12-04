@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import { adminGetAll as getAllOrders } from '../http/orderAPI.js'
-import { Button, Container, Spinner } from 'react-bootstrap'
+import { Button, Container } from 'react-bootstrap'
 import Orders from '../components/Orders.js'
 import CreateOrder from '../components/CreateOrder.js'
+import Loading from '../components/Loading.js'
 
 const AdminOrders = () => {
     const [orders, setOrders] = useState(null)
@@ -20,7 +21,7 @@ const AdminOrders = () => {
     }, [])
 
     if (fetching) {
-        return <Spinner animation="border" />
+        return <Loading />
     }
 
     return (

@@ -110,7 +110,7 @@ const CreateProduct = (props) => {
     return (
         <Modal show={show} onHide={() => setShow(false)} size="lg">
             <Modal.Header closeButton>
-                <Modal.Title>Новый товар</Modal.Title>
+                <Modal.Title>New item</Modal.Title>
             </Modal.Header>
 
             <Modal.Body>
@@ -121,7 +121,7 @@ const CreateProduct = (props) => {
                         onChange={e => handleInputChange(e)}
                         isValid={valid.name === true}
                         isInvalid={valid.name === false}
-                        placeholder="Название товара..."
+                        placeholder="Item title..."
                         className="mb-3"
                     />
                     <Row className="mb-3">
@@ -133,7 +133,7 @@ const CreateProduct = (props) => {
                                 isValid={valid.category === true}
                                 isInvalid={valid.category === false}
                             >
-                                <option value="">Категория</option>
+                                <option value="">Category</option>
                                 {categories && categories.map(item =>
                                     <option key={item.id} value={item.id}>{item.name}</option>
                                 )}
@@ -147,7 +147,7 @@ const CreateProduct = (props) => {
                                 isValid={valid.brand === true}
                                 isInvalid={valid.brand === false}
                             >
-                                <option value="">Тип</option>
+                                <option value="">Type</option>
                                 {brands && brands.map(item =>
                                     <option key={item.id} value={item.id}>{item.name}</option>
                                 )}
@@ -162,7 +162,7 @@ const CreateProduct = (props) => {
                                 onChange={e => handleInputChange(e)}
                                 isValid={valid.price === true}
                                 isInvalid={valid.price === false}
-                                placeholder="Цена товара..."
+                                placeholder="Item price..."
                             />
                         </Col>
                         <Col>
@@ -170,14 +170,14 @@ const CreateProduct = (props) => {
                                 name="image"
                                 type="file"
                                 onChange={e => handleImageChange(e)}
-                                placeholder="Фото товара..."
+                                placeholder="Item photo..."
                             />
                         </Col>
                     </Row>
                     <CreateProperties properties={properties} setProperties={setProperties} />
                     <Row>
                         <Col>
-                            <Button type="submit">Сохранить</Button>
+                            <Button type="submit">Save</Button>
                         </Col>
                     </Row>
                 </Form>

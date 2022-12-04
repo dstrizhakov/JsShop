@@ -14,7 +14,7 @@ class Category {
     async getOne(req, res, next) {
         try {
             if (!req.params.id) {
-                throw new Error('Не указан id категории')
+                throw new Error('Category id not specified')
             }
             const category = await CategoryModel.getOne(req.params.id)
             res.json(category)
@@ -26,7 +26,7 @@ class Category {
     async create(req, res, next) {
         try {
             if (!req.body.name) {
-                throw new Error('Нет названия категории')
+                throw new Error('No category name')
             }
             const category = await CategoryModel.create(req.body)
             res.json(category)

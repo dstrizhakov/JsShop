@@ -1,9 +1,9 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {observer} from "mobx-react-lite";
-import {Col, Container, Pagination, Row, Spinner} from "react-bootstrap";
+import {Container} from "react-bootstrap";
 import Slider from "../components/Slider";
 import {AppContext} from "../components/AppContext";
-import {fetchAllProducts, fetchBrands, fetchCategories} from "../http/catalogAPI";
+import {fetchAllProducts} from "../http/catalogAPI";
 import Hero from "../components/Hero";
 
 

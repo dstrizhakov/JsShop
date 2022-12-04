@@ -29,9 +29,9 @@ const UpdateProperties = (props) => {
 
     return (
         <>
-            <h5>Характеристики</h5>
+            <h5>Details</h5>
             <Button onClick={append} variant="outline-primary" size="sm" className="mb-2">
-                Добавить
+                Add
             </Button>
             {properties.map(item =>
                 <Row key={item.unique} className="mb-2" style={{display: item.remove ? 'none': 'flex'}}>
@@ -49,7 +49,7 @@ const UpdateProperties = (props) => {
                             name={'value_' + item.unique}
                             value={item.value}
                             onChange={e => change('value', e.target.value, item.unique)}
-                            placeholder="Value..."
+                            placeholder="Text..."
                             size="sm"
                         />
                     </Col>

@@ -27,7 +27,7 @@ const User = () => {
             <ul className="col-lg-10 text-start">
                 <li><Link to="/user/orders">Orders history</Link></li>
             </ul>
-            <Button onClick={handleLogout}>Logout</Button>
+            {/* <Button variant="success" onClick={handleLogout}>Logout</Button> */}
                         </div>
                     </div>
                 </div>

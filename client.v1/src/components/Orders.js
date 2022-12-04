@@ -1,5 +1,6 @@
 import { Table } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { Button, Container } from 'react-bootstrap'
 
 const Orders = (props) => {
 
@@ -8,6 +9,7 @@ const Orders = (props) => {
     }
 
     return (
+        
         <Table bordered hover size="sm" className="mt-3">
             <thead>
                 <tr>
@@ -42,7 +44,9 @@ const Orders = (props) => {
                     </tr>
                 )}
             </tbody>
+            
         </Table>
+    
     )
 }
 

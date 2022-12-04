@@ -1,14 +1,15 @@
-import { useContext, useState, useEffect } from 'react'
+import { useContext, useState } from 'react'
 import { AppContext } from './AppContext.js'
-import {fetchBasket, increment, decrement, remove, clear} from '../http/basketAPI.js'
-import { Table, Spinner, Button } from 'react-bootstrap'
+import { increment, decrement, remove, clear } from '../http/basketAPI.js'
+import { Table, Spinner, Button, Row } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import BasketItem from './BasketItem.js'
 import { observer } from 'mobx-react-lite'
+import Loading from './Loading.js'
 
 const BasketList = observer(() => {
     const { basket } = useContext(AppContext)
-    const [fetching, setFetching] = useState(true)
+    const [fetching, setFetching] = useState(false)
 
     const navigate = useNavigate()
 
@@ -55,25 +56,17 @@ const BasketList = observer(() => {
             )
     }
 
-    useEffect(() => {
-        fetchBasket()
-            .then(
-                data => basket.products = data.products
-            )
-            .finally(
-                () => setFetching(false)
-            )
-    }, [])
+
 
     if (fetching) {
-        return <Spinner animation="border" />
+        return <Loading />
     }
 
     return (
         <>
             {basket.count ? (
                 <>
-                    <Table bordered hover size="sm" className="mt-3">
+                    <Table responsive hover size="sm" className="mt-3">
                         <thead>
                             <tr>
                                 <th>Title</th>
@@ -100,10 +93,12 @@ const BasketList = observer(() => {
                             </tr>
                         </tbody>
                     </Table>
-                    <Button onClick={() => navigate('/checkout')}>Checkout</Button>
+                    <div className='text-center'>
+                        <Button onClick={() => navigate('/checkout')}>Checkout</Button>
+                    </div>
                 </>
             ) : (
-                <p>Your basket is empty</p>
+                <p className='text-center'>Your basket is empty</p>
             )}
         </>
     )
