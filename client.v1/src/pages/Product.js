@@ -6,12 +6,18 @@ import { append } from '../http/basketAPI.js'
 import { AppContext } from '../components/AppContext.js'
 import ImageZoom from "react-image-zooom";
 import Loading from '../components/Loading.js'
+import { useNavigate } from "react-router-dom";
 
 const Product = () => {
     const { id } = useParams()
     const { basket } = useContext(AppContext)
     const [product, setProduct] = useState(null)
     const [rating, setRating] = useState(null)
+    let navigate = useNavigate();
+
+    const goBack = () => {
+        navigate(-1);
+    }
 
     useEffect(() => {
         fetchOneProduct(id).then(data => setProduct(data))
@@ -29,6 +35,7 @@ const Product = () => {
     }
     return (
         <Container className="page-header">
+            <span className='go-back-link' onClick={(event) => goBack()}>Back</span>
             <Row className="mt-3 mb-3">
                 <Col xs={12} lg={8} xl={8}>
                     {product.image ? (
