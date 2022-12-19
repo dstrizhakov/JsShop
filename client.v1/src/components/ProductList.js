@@ -44,7 +44,7 @@ const ProductList = observer(() => {
                         <ProductItem key={item.id} data={item} />
                     )
                 ) : (
-                    <p className="m-3">Nothing found for your request</p>
+                    <p className="m-3 text-center">Nothing found for your request</p>
                 )}
             </Row>
             {catalog.pages > 1 && <Pagination>{pages}</Pagination>}

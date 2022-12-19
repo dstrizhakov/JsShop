@@ -1,5 +1,4 @@
 import BasketModel from '../models/Basket.js'
-import ProductModel from '../models/Product.js'
 import AppError from '../errors/AppError.js'
 
 const maxAge = 60 * 60 * 1000 * 24 * 365 // один год

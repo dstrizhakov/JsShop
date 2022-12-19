@@ -14,7 +14,7 @@ class Brand {
     async getOne(req, res, next) {
         try {
             if (!req.params.id) {
-                throw new Error('Не указан id бренда')
+                throw new Error('Brand id not specified')
             }
             const brand = await BrandModel.getOne(req.params.id)
             res.json(brand)
@@ -26,7 +26,7 @@ class Brand {
     async create(req, res, next) {
         try {
             if (!req.body.name) {
-                throw new Error('Нет названия бренда')
+                throw new Error('Brand name not specified')
             }
             const brand = await BrandModel.create(req.body)
             res.json(brand)
@@ -38,10 +38,10 @@ class Brand {
     async update(req, res, next) {
         try {
             if (!req.params.id) {
-                throw new Error('Не указан id бренда')
+                throw new Error('Brand id not specified')
             }
             if (!req.body.name) {
-                throw new Error('Нет названия бренда')
+                throw new Error('Brand name not specified')
             }
             const brand = await BrandModel.update(req.params.id, req.body)
             res.json(brand)
@@ -53,7 +53,7 @@ class Brand {
     async delete(req, res, next) {
         try {
             if (!req.params.id) {
-                throw new Error('Не указан id бренда')
+                throw new Error('Brand id not specified')
             }
             const brand = await BrandModel.delete(req.params.id)
             res.json(brand)

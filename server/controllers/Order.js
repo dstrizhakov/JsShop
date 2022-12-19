@@ -20,16 +20,16 @@ class Order {
         try {
             const {name, email, phone, address, comment = null} = req.body
             // данные для создания заказа
-            if (!name) throw new Error('Не указано имя покупателя')
-            if (!email) throw new Error('Не указан email покупателя')
-            if (!phone) throw new Error('Не указан телефон покупателя')
-            if (!address) throw new Error('Не указан адрес доставки')
+            if (!name) throw new Error('Buyer name not specified')
+            if (!email) throw new Error('Buyer email not specified')
+            if (!phone) throw new Error('Buyer phone not specified')
+            if (!address) throw new Error('Buyer adress not specified')
 
             let items, userId = null
             if (type === 'admin') {
                 // когда заказ делает админ, id пользователя и состав заказа в теле запроса
-                if (!req.body.items) throw new Error('Не указан состав заказа')
-                if (req.body.items.length === 0) throw new Error('Не указан состав заказа')
+                if (!req.body.items) throw new Error('Order not specified')
+                if (req.body.items.length === 0) throw new Error('Order not specified')
                 items = req.body.items
                 // проверяем существование пользователя
                 userId = req.body.userId ?? null
@@ -39,9 +39,9 @@ class Order {
             } else {
                 // когда заказ делает обычный пользователь (авторизованный или нет), состав
                 // заказа получаем из корзины, а id пользователя из req.auth.id (если есть)
-                if (!req.signedCookies.basketId) throw new Error('Ваша корзина пуста')
+                if (!req.signedCookies.basketId) throw new Error('Your basket is empty')
                 const basket = await BasketModel.getOne(parseInt(req.signedCookies.basketId))
-                if (basket.products.length === 0) throw new Error('Ваша корзина пуста')
+                if (basket.products.length === 0) throw new Error('Your basket is empty')
                 items = basket.products
                 userId = req.auth?.id ?? null
             }
@@ -70,7 +70,7 @@ class Order {
     async adminGetUser(req, res, next) {
         try {
             if (!req.params.id) {
-                throw new Error('Не указан id пользователя')
+                throw new Error('User id is not specified')
             }
             const order = await OrderModel.getAll(req.params.id)
             res.json(order)
@@ -82,7 +82,7 @@ class Order {
     async adminGetOne(req, res, next) {
         try {
             if (!req.params.id) {
-                throw new Error('Не указан id заказа')
+                throw new Error('Order id is not specified')
             }
             const order = await OrderModel.getOne(req.params.id)
             res.json(order)
@@ -94,7 +94,7 @@ class Order {
     async adminDelete(req, res, next) {
         try {
             if (!req.params.id) {
-                throw new Error('Не указан id заказа')
+                throw new Error('Order id is not specified')
             }
             const order = await OrderModel.delete(req.params.id)
             res.json(order)
@@ -115,7 +115,7 @@ class Order {
     async userGetOne(req, res, next) {
         try {
             if (!req.params.id) {
-                throw new Error('Не указан id заказа')
+                throw new Error('Order id is not specified')
             }
             const order = await OrderModel.getOne(req.params.id, req.auth.id)
             res.json(order)

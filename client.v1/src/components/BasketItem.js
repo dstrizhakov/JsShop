@@ -1,6 +1,8 @@
 import { Button } from 'react-bootstrap'
+import { propTypes } from 'react-bootstrap/esm/Image';
 
 const BasketItem = (props) => {
+console.log(props);
     return (
         <tr>
             <td>{props.name}</td>

@@ -138,7 +138,7 @@ const AdminProducts = () => {
                     {totalPages > 1 && <Pagination>{pages}</Pagination>}
                 </>
             ) : (
-                <p>Items list is empty</p>
+                <p className='text-center'>Items list is empty</p>
             )}
         </Container>
     )

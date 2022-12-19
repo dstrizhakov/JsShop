@@ -42,12 +42,13 @@ const AdminOrder = () => {
             error => alert(error.response.data.message)
         )
     }
-console.log(order)
+
+
     return (
         <Container className="page-header">
             <h1>Order № {order.id}</h1>
             <Order data={order} admin={true} />
-            <Button variant="danger" onClick={(event) => handleDeleteOrder(order.id)}>Delete order</Button>
+            {/* <Button variant="danger" onClick={(event) => handleDeleteOrder(order.id)}>Delete order</Button> */}
         </Container>
     )
 }

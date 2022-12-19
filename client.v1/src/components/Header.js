@@ -34,7 +34,7 @@ const Header = observer(() => {
                             
                                 <NavLink to="/basket" className="nav-link">
                                     Basket
-                                    {!!basket.count && <span>({basket.count})</span>}
+                                    {!!basket.count && <span>{basket.count}</span>}
                                 </NavLink>
                           
                            

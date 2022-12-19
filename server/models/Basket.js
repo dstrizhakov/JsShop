@@ -1,7 +1,6 @@
 import { Basket as BasketMapping } from './mapping.js'
 import { Product as ProductMapping } from './mapping.js'
 import { BasketProduct as BasketProductMapping } from './mapping.js'
-import AppError from '../errors/AppError.js'
 
 const pretty = (basket) => {
     const data = {}
@@ -143,7 +142,7 @@ class Basket {
             include: [{model: ProductMapping, as: 'products'}]
         })
         if (!basket) {
-            throw new Error('Корзина не найдена в БД')
+            throw new Error('Basket not found in database')
         }
         await basket.destroy()
         return pretty(basket)

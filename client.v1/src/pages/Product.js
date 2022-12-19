@@ -38,7 +38,7 @@ const Product = () => {
                     )}
                 </Col>
                 <Col xs={12} lg={4} xl={4}>
-                    <div className="p-2">
+                    <div className="py-2 m-2">
                         <h1>{product.name}</h1>
                         <h3>{product.price} USD</h3>
                         <p>Type: {product.brand.name}</p>
@@ -68,9 +68,9 @@ const Product = () => {
                     {/*<Button className="me-2" variant="warning">Buy on Etsy</Button>{' '}*/}
 
                 </Col>
-            </Row >
+            </Row>
             {!!product.props.length &&
-                <Row className="px-2">
+                <Row className="mx-2">
                         <h3>Details:</h3>
                             <Table hover size="sm" >
                                 <tbody>

@@ -118,7 +118,8 @@ const AdminCategories = () => {
             .then(
                 data => {
                     setChange(!change)
-                    alert(`Категория «${data.name}» удалена`)
+                    console.log(`Category «${data.name}» deleted`)
+                    // alert(`Category «${data.name}» deleted`)
                 }
             )
             .catch(
@@ -173,7 +174,7 @@ const AdminCategories = () => {
                     </tbody>
                 </Table>
             ) : (
-                <p>Список категорий пустой</p>
+                <p className='text-center'>Category list is empty</p>
             )}
         </Container>
     )

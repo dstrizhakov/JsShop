@@ -10,18 +10,18 @@ const ProductItem = ({data}) => {
             <Card style={{cursor: "pointer"}}>
                 {data.image ? (
                     <>
-                        <Card.Header style={{ overflow: 'hidden', padding: "5px"}}>
+                        {/* <Card.Header style={{ overflow: 'hidden', padding: "5px"}}>
                             <p style={{ fontSize: 13, marginBottom: "0px", textTransform: "uppercase", textAlign:"center"}}>{data.name}</p>
-                            </Card.Header>
-                        <Card.Img className="d-block w-100" variant="bottom" src={process.env.REACT_APP_IMG_URL + data.image} />
+                            </Card.Header> */}
+                        <Card.Img className="item-image d-block w-100" variant="bottom" src={process.env.REACT_APP_IMG_URL + data.image} />
                     </>
 
                 ) : (
                     <Card.Img variant="top" src="http://via.placeholder.com/200" />
                 )}
-               <Card.Footer style={{ overflow: 'hidden', padding: "5px"}}>
+               {/* <Card.Footer style={{ overflow: 'hidden', padding: "5px"}}>
                     <p style={{ fontSize: 13, marginBottom: "0px", textTransform: "uppercase", textAlign:"center"}}>{data.brand.name}</p>
-                </Card.Footer>
+                </Card.Footer> */}
                 {/*<Card.Body style={{ overflow: 'hidden'}}>
                     <p>Type: {data.brand.name}</p>
                     <strong>{data.name}</strong>

@@ -1,27 +1,27 @@
 import BasketProductModel from '../models/BasketProduct.js'
 import AppError from '../errors/AppError.js'
 
-const check = async (req, res, next) => {const check = async (req, res, next) => {
+const check = async (req, res, next) => {
     try {
         if (!req.signedCookies.basketId) {
-            throw new Error('Корзина еще не создана')
+            throw new Error('Basket not created yet')
         }
         const exist = await BasketModel.isExist(req.signedCookies.basketId)
-        if (!exist)) {
+        if (!exist) {
             res.clearCookie('basketId')
-            throw new Error('Корзина не найдена в БД')
+            throw new Error('Basket not found in database')
         }
     } catch(e) {
         next(AppError.badRequest(e.message))
     }
     try {
         if (!req.signedCookies.basketId) {
-            throw new Error('Корзина еще не создана')
+            throw new Error('Basket not created yet')
         }
         const exist = await BasketModel.isExist(req.signedCookies.basketId)
-        if (!exist)) {
+        if (!exist) {
             res.clearCookie('basketId')
-            throw new Error('Корзина не найдена в БД')
+            throw new Error('Basket not found in database')
         }
     } catch(e) {
         next(AppError.badRequest(e.message))
@@ -43,7 +43,7 @@ class BasketProduct {
         await check(req, res, next) // проверяем существование корзины
         try {
             if (!req.params.productId) {
-                throw new Error('Не указан id товара')
+                throw new Error('Item id not specified')
             }
             const item = await BasketProductModel.create(
                 req.signedCookies.basketId,
@@ -60,7 +60,7 @@ class BasketProduct {
         await check(req, res, next) // проверяем существование корзины
         try {
             if (!req.params.productId) {
-                throw new Error('Не указан id товара')
+                throw new Error('Item id not specified')
             }
             const item = await BasketProductModel.update(
                 req.signedCookies.basketId,
@@ -77,7 +77,7 @@ class BasketProduct {
         await check(req, res, next) // проверяем существование корзины
         try {
             if (!req.params.productId) {
-                throw new Error('Не указан id товара')
+                throw new Error('Item id not specified')
             }
             const item = await BasketProductModel.delete(
                 req.signedCookies.basketId,

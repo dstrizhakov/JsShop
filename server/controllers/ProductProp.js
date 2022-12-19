@@ -5,7 +5,7 @@ class ProductProp {
     async getAll(req, res, next) {
         try {
             if (!req.params.productId) {
-                throw new Error('Не указан id товара')
+                throw new Error('Item id not specified')
             }
             const properties = await ProductPropModel.getAll(req.params.productId)
             res.json(properties)
@@ -17,10 +17,10 @@ class ProductProp {
     async getOne(req, res, next) {
         try {
             if (!req.params.productId) {
-                throw new Error('Не указан id товара')
+                throw new Error('Item id not specified')
             }
             if (!req.params.id) {
-                throw new Error('Не указано id свойства')
+                throw new Error('Property id not specified')
             }
             const property = await ProductPropModel.getOne(req.params.productId, req.params.id)
             res.json(property)
@@ -32,10 +32,10 @@ class ProductProp {
     async create(req, res, next) {
         try {
             if (!req.params.productId) {
-                throw new Error('Не указан id товара')
+                throw new Error('Item id not specified')
             }
             if (Object.keys(req.body).length === 0) {
-                throw new Error('Нет данных для создания')
+                throw new Error('No data to create')
             }
             const property = await ProductPropModel.create(req.params.productId, req.body)
             res.json(property)
@@ -47,13 +47,13 @@ class ProductProp {
     async update(req, res, next) {
         try {
             if (!req.params.productId) {
-                throw new Error('Не указан id товара')
+                throw new Error('Item id not specified')
             }
             if (!req.params.id) {
-                throw new Error('Не указано id свойства')
+                throw new Error('Property id not specified')
             }
             if (Object.keys(req.body).length === 0) {
-                throw new Error('Нет данных для обновления')
+                throw new Error('No data to update')
             }
             const property = await ProductPropModel.update(req.params.productId, req.params.id, req.body)
             res.json(property)
@@ -65,10 +65,10 @@ class ProductProp {
     async delete(req, res, next) {
         try {
             if (!req.params.productId) {
-                throw new Error('Не указан id товара')
+                throw new Error('Item id not specified')
             }
             if (!req.params.id) {
-                throw new Error('Не указано id свойства')
+                throw new Error('Property id not specified')
             }
             const property = await ProductPropModel.delete(req.params.productId, req.params.id)
             res.json(property)

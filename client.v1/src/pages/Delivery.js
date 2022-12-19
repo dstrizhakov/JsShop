@@ -3,8 +3,10 @@ import React from "react";
 import {NavLink} from "react-router-dom";
 
 const Delivery = () => {
+    
     return (
         <Container className="page-header d-flex align-items-center">
+            <section className='delivery'>
             <div className="container position-relative">
                 <div className="row d-flex justify-content-center">
                     <div className="col-lg-10 text-center">
@@ -14,11 +16,11 @@ const Delivery = () => {
                             Usually delivery around the world takes from 2 to 4 weeks. During the holiday months,
                             sometimes parcels are delayed for another week.</p>
                         <p>You can always contact me to clarify the status of the shipment, I track all my shipments.</p>
-                        <NavLink to="/contacts" className="nav-link">Contact me</NavLink>
                     </div>
                 </div>
             </div>
-
+            <NavLink to="/contacts" className="nav-link">Contact me</NavLink>
+            </section>
         </Container>
     )
 }

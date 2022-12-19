@@ -6,7 +6,7 @@ const decode = (token) => {
         const decoded = jwt.verify(token, process.env.SECRET_KEY)
         return decoded
     } catch(e) {
-        throw new Error('Неверная подпись токена')
+        throw new Error('Invalid token signature')
     }
 }
 
@@ -17,7 +17,7 @@ const auth = (req, res, next) => {
     try {
         const token = req.headers.authorization?.split(' ')[1] // Bearer token
         if (!token) {
-            throw new Error('Требуется авторизация')
+            throw new Error('Authorization required')
         }
         const decoded = decode(token)
         req.auth = decoded

@@ -118,7 +118,8 @@ const AdminBrands = () => {
             .then(
                 data => {
                     setChange(!change)
-                    alert(`Бренд «${data.name}» удален`)
+                    console.log(`Type «${data.name}» deleted`)
+                    // alert(`Бренд «${data.name}» удален`)
                 }
             )
             .catch(
@@ -173,7 +174,7 @@ const AdminBrands = () => {
                 </tbody>
                 </Table>
             ) : (
-                <p>Types list is empty</p>
+                <p className='text-center'>Types list is empty</p>
             )}
         </Container>
     )

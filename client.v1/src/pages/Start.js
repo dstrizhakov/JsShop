@@ -19,16 +19,15 @@ const Start = observer(() => {
                 catalog.count = data.count
             })
             .finally(() => setProductsFetching(false))
-        // eslint-disable-next-line
     }, [])
+    
     return (
-        <>
-                <Slider products={catalog.products}/>
+        <div className='page-header'>
+            <Slider products={catalog.products}/>
             <Container>
                 <Hero/>
             </Container>
-
-        </>
+        </div>
     );
 });
 

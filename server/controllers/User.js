@@ -16,11 +16,11 @@ class User {
         const {email, password, role = 'USER'} = req.body
         try {
             if (!email || !password) {
-                throw new Error('Пустой email или пароль')
+                throw new Error('Email or password is empty')
             }
             // Удалить при регистрации новых админов
             if (role !== 'USER') {
-                throw new Error('Возможна только роль USER')
+                throw new Error('Only the USER role is possible')
             }
 
             const hash = await bcrypt.hash(password, 5)
@@ -38,7 +38,7 @@ class User {
             const user = await UserModel.getByEmail(email)
             let compare = bcrypt.compareSync(password, user.password)
             if (!compare) {
-                throw new Error('Указан неверный пароль')
+                throw new Error('Incorrect password or email')
             }
             const token = makeJwt(user.id, user.email, user.role)
             return res.json({token})
@@ -64,7 +64,7 @@ class User {
     async getOne(req, res, next) {
         try {
             if (!req.params.id) {
-                throw new Error('Не указан id пользователя')
+                throw new Error('User id not specified')
             }
             const user = await UserModel.getOne(req.params.id)
             res.json(user)
@@ -77,10 +77,10 @@ class User {
         const {email, password, role = 'USER'} = req.body
         try {
             if (!email || !password) {
-                throw new Error('Пустой email или пароль')
+                throw new Error('Email or password is empty')
             }
             if ( ! ['USER', 'ADMIN'].includes(role)) {
-                throw new Error('Недопустимое значение роли')
+                throw new Error('Invalid role value')
             }
             const hash = await bcrypt.hash(password, 5)
             const user = await UserModel.create({email, password: hash, role})
@@ -93,14 +93,14 @@ class User {
     async update(req, res, next) {
         try {
             if (!req.params.id) {
-                throw new Error('Не указан id пользователя')
+                throw new Error('User id not specified')
             }
             if (Object.keys(req.body).length === 0) {
-                throw new Error('Нет данных для обновления')
+                throw new Error('No data to update')
             }
             let {email, password, role} = req.body
             if (role && !['USER', 'ADMIN'].includes(role)) {
-                throw new Error('Недопустимое значение роли')
+                throw new Error('Invalid role value')
             }
             if (password) {
                 password = await bcrypt.hash(password, 5)
@@ -115,7 +115,7 @@ class User {
     async delete(req, res, next) {
         try {
             if (!req.params.id) {
-                throw new Error('Не указан id пользователя')
+                throw new Error('User id not specified')
             }
             const user = await UserModel.delete(req.params.id)
             res.json(user)

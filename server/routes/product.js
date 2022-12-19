@@ -21,11 +21,11 @@ router.get('/getall', ProductController.getAll)
 // получить один товар каталога
 router.get('/getone/:id([0-9]+)', ProductController.getOne)
 // создать товар каталога — нужны права администратора
-router.post('/create', /*authMiddleware, adminMiddleware,*/ ProductController.create)
+router.post('/create', authMiddleware, adminMiddleware, ProductController.create)
 // обновить товар каталога  — нужны права администратора
-router.put('/update/:id([0-9]+)', /*authMiddleware, adminMiddleware,*/ ProductController.update)
+router.put('/update/:id([0-9]+)', authMiddleware, adminMiddleware, ProductController.update)
 // удалить товар каталога  — нужны права администратора
-router.delete('/delete/:id([0-9]+)', /*authMiddleware, adminMiddleware,*/ProductController.delete)
+router.delete('/delete/:id([0-9]+)', authMiddleware, adminMiddleware, ProductController.delete)
 
 /*
  * Свойства

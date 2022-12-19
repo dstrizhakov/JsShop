@@ -10,7 +10,7 @@ class User {
     async getOne(id) {
         const user = await UserMapping.findByPk(id)
         if (!user) {
-            throw new Error('Пользователь не найден в БД')
+            throw new Error('User not found in database')
         }
         return user
     }
@@ -18,7 +18,7 @@ class User {
     async getByEmail(email) {
         const user = await UserMapping.findOne({where: {email}})
         if (!user) {
-            throw new Error('Пользователь не найден в БД')
+            throw new Error('User not found in database')
         }
         return user
     }
@@ -27,7 +27,7 @@ class User {
         const {email, password, role} = data
         const check = await UserMapping.findOne({where: {email}})
         if (check) {
-            throw new Error('Пользователь уже существует')
+            throw new Error('User already exists')
         }
         const user = await UserMapping.create({email, password, role})
         return user
@@ -36,7 +36,7 @@ class User {
     async update(id, data) {
         const user = await UserMapping.findByPk(id)
         if (!user) {
-            throw new Error('Пользователь не найден в БД')
+            throw new Error('User not found in database')
         }
         const {
             email = user.email,
@@ -50,7 +50,7 @@ class User {
     async delete(id) {
         const user = await UserMapping.findByPk(id)
         if (!user) {
-            throw new Error('Пользователь не найден в БД')
+            throw new Error('User not found in database')
         }
         await user.destroy()
         return user

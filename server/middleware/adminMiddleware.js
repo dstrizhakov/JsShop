@@ -6,7 +6,7 @@ const admin = (req, res, next) => {
     }
     try {
         if (req.auth.role !== 'ADMIN') {
-            throw new Error('Только для администратора')
+            throw new Error('For admins only')
         }
         next()
     } catch (e) {
