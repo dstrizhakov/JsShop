@@ -1,44 +1,42 @@
 import { useState, useEffect } from 'react'
 import { userGetOne as getOneOrder } from '../http/orderAPI.js'
-import { Button, Container, Spinner } from 'react-bootstrap'
+import { Container, Spinner } from 'react-bootstrap'
 import Order from '../components/Order.js'
 import { useParams } from 'react-router-dom'
 
 const UserOrder = () => {
-    const { id } = useParams()
-    const [order, setOrder] = useState(null)
-    const [fetching, setFetching] = useState(true)
-    const [error, setError] = useState(null)
+	const { id } = useParams()
+	const [order, setOrder] = useState(null)
+	const [fetching, setFetching] = useState(true)
+	const [error, setError] = useState(null)
 
-    useEffect(() => {
-        getOneOrder(id)
-            .then(
-                data => setOrder(data)
-            )
-            .catch(
-                error => setError(error.response.data.message)
-            )
-            .finally(
-                () => setFetching(false)
-            )
-    }, [id])
+	useEffect(() => {
+		getOneOrder(id)
+			.then(
+				data => setOrder(data)
+			)
+			.catch(
+				error => setError(error.response.data.message)
+			)
+			.finally(
+				() => setFetching(false)
+			)
+	}, [id])
 
-    if (fetching) {
-        return <Spinner animation="border" />
-    }
+	if (fetching) {
+		return <Spinner animation="border" />
+	}
 
-    if (error) {
-        return <p>{error}</p>
-    }
+	if (error) {
+		return <p>{error}</p>
+	}
 
-    return (
-        <Container className="page-header">
-      
-            <h1>Order № {order.id}</h1>
-            <Order data={order} admin={false} />
-            
-        </Container>
-    )
+	return (
+		<Container className="page-header">
+			<h1>Order № {order.id}</h1>
+			<Order data={order} admin={false} />
+		</Container>
+	)
 }
 
 export default UserOrder

@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
@@ -53,13 +54,15 @@ const Contacts = () => {
                           />
                     </Col>
                     <Col xs="12" md="6" >
+                    <InputGroup className="mb-3">
                         <Form.Control 
                         required
                         name="user_email"
                         type="email" 
                         placeholder="Your Email"
-                        className="mb-3" 
                         />
+                    </InputGroup>
+                    
                     </Col>
                 </Row>
                 <Form.Group className="mb-3">

@@ -50,45 +50,31 @@ const Product = () => {
                         <h3>{product.price} USD</h3>
                         <p>Type: {product.brand.name}</p>
                         <p>Category: {product.category.name}</p>
-                       {/* {!!product.props.length &&
-                            <div>
-                                {product.props.map(item =>
-                                    <div key={item.id}>
-                                        <span>{item.name}</span>
-                                        <span>{item.value}</span>
-                                        <p></p>
-                                    </div>
-                                )}
-                            </div>
-
-                        }*/}
                         <Button onClick={() => handleClick(product.id)}>Add to basket</Button>
                     </div>
-
-                    {/*<div>
+                    {/* <div>
                         {rating ? (
-                            <p>Rating: {rating.rating}, голосов {rating.votes}</p>
+                            <p>Rating: {rating.rating}, votes {rating.votes}</p>
                         ) : (
-                            <Spinner animation="border" />
+                            <Loading />
                         )}
-                    </div>*/}
+                    </div> */}
                     {/*<Button className="me-2" variant="warning">Buy on Etsy</Button>{' '}*/}
-
                 </Col>
             </Row>
             {!!product.props.length &&
                 <Row className="mx-2">
                         <h3>Details:</h3>
-                            <Table hover size="sm" >
-                                <tbody>
-                                    {product.props.map(item => 
-                                        <tr key={item.id}>
-                                            <td>{item.name}</td>
-                                            <td>{item.value}</td>
-                                        </tr>
-                                    )}
-                                </tbody>
-                            </Table>
+                        <Table hover size="sm" >
+                            <tbody>
+                                {product.props.map(item => 
+                                    <tr key={item.id}>
+                                        <td>{item.name}</td>
+                                        <td>{item.value}</td>
+                                    </tr>
+                                )}
+                            </tbody>
+                        </Table>
                 </Row>
             }
         </Container>

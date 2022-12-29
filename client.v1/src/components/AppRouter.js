@@ -1,4 +1,4 @@
-import {Routes, Route, useLocation} from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Shop from '../pages/Shop.js'
 import Login from '../pages/Login.js'
 import Signup from '../pages/Signup.js'
@@ -18,74 +18,73 @@ import AdminCategories from '../pages/AdminCategories.js'
 import AdminBrands from '../pages/AdminBrands.js'
 import AdminProducts from '../pages/AdminProducts.js'
 import { AppContext } from './AppContext.js'
-import {useContext, useEffect, useState} from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { observer } from 'mobx-react-lite'
 import Start from "../pages/Start";
 
-
 const publicRoutes = [
-    {path: '/', Component: Start},
-    {path: '/catalog', Component: Shop},
-    {path: '/login', Component: Login},
-    {path: '/signup', Component: Signup},
-    {path: '/product/:id', Component: Product},
-    {path: '/basket', Component: Basket},
-    {path: '/checkout', Component: Checkout},
-    {path: '/delivery', Component: Delivery},
-    {path: '/contacts', Component: Contacts},
-    {path: '*', Component: NotFound},
+	{ path: '/', Component: Start },
+	{ path: '/catalog', Component: Shop },
+	{ path: '/login', Component: Login },
+	{ path: '/signup', Component: Signup },
+	{ path: '/product/:id', Component: Product },
+	{ path: '/basket', Component: Basket },
+	{ path: '/checkout', Component: Checkout },
+	{ path: '/delivery', Component: Delivery },
+	{ path: '/contacts', Component: Contacts },
+	{ path: '*', Component: NotFound },
 ]
 
 const authRoutes = [
-    {path: '/user', Component: User},
-    {path: '/user/orders', Component: UserOrders},
-    {path: '/user/order/:id', Component: UserOrder},
+	{ path: '/user', Component: User },
+	{ path: '/user/orders', Component: UserOrders },
+	{ path: '/user/order/:id', Component: UserOrder },
 ]
 
 const adminRoutes = [
-    {path: '/admin', Component: Admin},
-    {path: '/admin/orders', Component: AdminOrders},
-    {path: '/admin/order/:id', Component: AdminOrder},
-    {path: '/admin/categories', Component: AdminCategories},
-    {path: '/admin/brands', Component: AdminBrands},
-    {path: '/admin/products', Component: AdminProducts},
+	{ path: '/admin', Component: Admin },
+	{ path: '/admin/orders', Component: AdminOrders },
+	{ path: '/admin/order/:id', Component: AdminOrder },
+	{ path: '/admin/categories', Component: AdminCategories },
+	{ path: '/admin/brands', Component: AdminBrands },
+	{ path: '/admin/products', Component: AdminProducts },
 ]
 
 const AppRouter = observer(() => {
-    const { user } = useContext(AppContext)
-    const location = useLocation();
-    const [displayLocation, setDisplayLocation] = useState(location);
-    const [transitionStage, setTransistionStage] = useState("fadeIn");
+	const { user } = useContext(AppContext)
+	const location = useLocation();
+	const [displayLocation, setDisplayLocation] = useState(location);
+	const [transitionStage, setTransistionStage] = useState("fadeIn");
 
-    useEffect(() => {
-        if (location !== displayLocation) {
-            setTransistionStage("fadeOut")};
-    }, [location, displayLocation]);
+	useEffect(() => {
+		if (location !== displayLocation) {
+			setTransistionStage("fadeOut")
+		};
+	}, [location, displayLocation]);
 
-
-    return (
-        <div
-            className={`${transitionStage}`}
-            onAnimationEnd={() => {
-                if (transitionStage === "fadeOut") {
-                    setTransistionStage("fadeIn");
-                    setDisplayLocation(location);
-                }
-            }}
-        >
-        <Routes location={displayLocation}>
-            {publicRoutes.map(({path, Component}) =>
-                <Route key={path} path={path} element={<Component />} />
-            )}
-            {user.isAuth && authRoutes.map(({path, Component}) =>
-                <Route key={path} path={path} element={<Component />} />
-            )}
-            {user.isAdmin && adminRoutes.map(({path, Component}) =>
-                <Route key={path} path={path} element={<Component />} />
-            )}
-        </Routes>
-        </div>
-    )
+	return (
+		<div
+			className={`${transitionStage}`}
+			onAnimationEnd={() => {
+				if (transitionStage === "fadeOut") {
+					setTransistionStage("fadeIn");
+					setDisplayLocation(location);
+				}
+			}}
+		>
+			<Routes location={displayLocation}>
+				{publicRoutes.map(({ path, Component }) =>
+					<Route key={path} path={path} element={<Component />} />
+				)}
+				{user.isAuth && authRoutes.map(({ path, Component }) =>
+					<Route key={path} path={path} element={<Component />} />
+				)}
+				{user.isAdmin && adminRoutes.map(({ path, Component }) =>
+					<Route key={path} path={path} element={<Component />} />
+				)}
+			</Routes>
+		</div>
+	)
 })
 
 export default AppRouter

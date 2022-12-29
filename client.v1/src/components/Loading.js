@@ -2,11 +2,11 @@ import React from 'react';
 import { Spinner } from 'react-bootstrap';
 
 const Loading = () => {
-    return (
-        <div className='loading-backdrop'>
-           <Spinner animation="border" />
-        </div>
-    );
+	return (
+		<div className='loading-backdrop'>
+			<Spinner animation="border" />
+		</div>
+	);
 };
 
 export default Loading;

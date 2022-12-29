@@ -35,7 +35,6 @@ html, body {
     background-color: var(--background-main);
 }
 
-
 h1,
 h2,
 h3,
@@ -44,6 +43,7 @@ h5,
 h6 {
     font-family: var(--font-primary);
 }
+
 .main {
     display: flex;
     flex-direction: column;
@@ -57,6 +57,7 @@ h6 {
     height: 100vh;
     width: 100%;
   }
+
 /*--------------------------------------------------------------
 # Sections & Section Header
 --------------------------------------------------------------*/
@@ -98,7 +99,6 @@ h6 {
 # Page Header
 --------------------------------------------------------------*/
 
-
 .page-header {
     margin-top: 60px;
     padding: 20px 0;
@@ -128,6 +128,7 @@ h6 {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
+
 .header {
     position: fixed;
     transition: all 0.5s ease 0s;
@@ -162,10 +163,10 @@ h6 {
     transition:all 0.3s ease 0s;
 }
 
-
 /*--------------------------------------------------------------
 # Slider
 --------------------------------------------------------------*/
+
 .slider {
     position: fixed;
     top:60px;
@@ -183,6 +184,7 @@ h6 {
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
+
 .hero {
     width: 100%;
     background-size: cover;
@@ -229,6 +231,7 @@ h6 {
 /*--------------------------------------------------------------
 # Delivery section
 --------------------------------------------------------------*/
+
 .delivery {
     display: flex;
     flex-direction: column;
@@ -268,18 +271,30 @@ h6 {
 .nav-link span::before {
     content: '';
     }
+
 /*--------------------------------------------------------------
 # Product Item section
 --------------------------------------------------------------*/
+
 .item-image {
     max-height: 400px;
     object-fit: cover;
     border-radius: 3px 3px 0px 0px;
 }
+.sign {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.bi {
+    font-size: 18px;
+}
 
 /*--------------------------------------------------------------
 # Product section
 --------------------------------------------------------------*/
+
 .go-back-link {
     display: none;
     cursor: pointer;
@@ -291,9 +306,11 @@ h6 {
     border-radius: 5px;
     background-color: #0d6efd;
 }
+
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
+
 .footer{
     border-top:1px solid rgba(29, 31, 32, 0.1);
     min-height: 60px;
@@ -323,8 +340,6 @@ h6 {
 }
 
 
-
-
 @media (max-width: 768px) {
     .hero h2 {
         font-size: 32px;
@@ -335,14 +350,10 @@ h6 {
 
 }
 
-
-
-
-
-
 /*--------------------------------------------------------------
 # Animation React-transition-group
 --------------------------------------------------------------*/
+
 .fadeIn {
     flex: 1 1 auto;
     animation: 0.4s fadeIn forwards;
@@ -356,21 +367,21 @@ h6 {
 @keyframes fadeIn {
     from {
         opacity: 0;
-       /* transform: translate(0px, -10px);*/
+        transform: translate(0px, -10px);
     }
     to {
         opacity: 1;
-        /*transform: translate(0px, 0px);*/
+        transform: translate(0px, 0px);
     }
 }
 
 @keyframes fadeOut {
     from {
         opacity: 1;
-        /*transform: translate(0px, 0px);*/
+        transform: translate(0px, 0px);
     }
     to {
-        /*transform: translate(0px, 10px);*/
+        transform: translate(0px, 10px);
         opacity: 0;
     }
 }

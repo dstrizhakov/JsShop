@@ -6,51 +6,51 @@ import { useParams } from 'react-router-dom'
 import Loading from '../components/Loading.js'
 
 const AdminOrder = () => {
-    const { id } = useParams()
-    const [order, setOrder] = useState(null)
-    const [fetching, setFetching] = useState(true)
-    const [error, setError] = useState(null)
+	const { id } = useParams()
+	const [order, setOrder] = useState(null)
+	const [fetching, setFetching] = useState(true)
+	const [error, setError] = useState(null)
 
-    useEffect(() => {
-        getOneOrder(id)
-            .then(
-                data => setOrder(data)
-            )
-            .catch(
-                error => setError(error.response.data.message)
-            )
-            .finally(
-                () => setFetching(false)
-            )
-    }, [id])
+	useEffect(() => {
+		getOneOrder(id)
+			.then(
+				data => setOrder(data)
+			)
+			.catch(
+				error => setError(error.response.data.message)
+			)
+			.finally(
+				() => setFetching(false)
+			)
+	}, [id])
 
-    if (fetching) {
-        return <Loading />
-    }
+	if (fetching) {
+		return <Loading />
+	}
 
-    if (error) {
-        return <p>{error}</p>
-    }
-    const handleDeleteOrder = (id) =>{
-        deleteOrder(id)
-        .then(
-            data => {
-                alert(`Order with id «${id}» was deleted`)
-            }
-        )
-        .catch(
-            error => alert(error.response.data.message)
-        )
-    }
+	if (error) {
+		return <p>{error}</p>
+	}
+	const handleDeleteOrder = (id) => {
+		deleteOrder(id)
+			.then(
+				data => {
+					alert(`Order with id «${id}» was deleted`)
+				}
+			)
+			.catch(
+				error => alert(error.response.data.message)
+			)
+	}
 
 
-    return (
-        <Container className="page-header">
-            <h1>Order № {order.id}</h1>
-            <Order data={order} admin={true} />
-            {/* <Button variant="danger" onClick={(event) => handleDeleteOrder(order.id)}>Delete order</Button> */}
-        </Container>
-    )
+	return (
+		<Container className="page-header">
+			<h1>Order № {order.id}</h1>
+			<Order data={order} admin={true} />
+			{/* <Button variant="danger" onClick={(event) => handleDeleteOrder(order.id)}>Delete order</Button> */}
+		</Container>
+	)
 }
 
 export default AdminOrder
