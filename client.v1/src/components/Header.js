@@ -30,27 +30,21 @@ const Header = observer(() => {
 						<NavLink to="/catalog" className="nav-link">Catalog</NavLink>
 						<NavLink to="/delivery" className="nav-link">Delivery</NavLink>
 						<NavLink to="/contacts" className="nav-link">Contact</NavLink>
-						<NavLink to="/basket" className="nav-link"><i className="bi bi-cart3"></i>
+						<NavLink to="/basket" className="nav-link">Basket
 							{!!basket.count && <span>{basket.count}</span>}
 						</NavLink>
-						{user.isAdmin && (<NavLink to="/admin" className="nav-link"><i title='Admin' class="bi bi-person-lines-fill"></i></NavLink>)
+						{user.isAdmin && (<NavLink to="/admin" className="nav-link">Admin</NavLink>)
 						}
 						{user.isAuth
 							? <>
-								<NavLink to="/user" className="nav-link"><i title='User' class="bi bi-person"></i></NavLink>
-								<a style={{ cursor: "pointer" }} onClick={(e) => handleLogout(e)} className="nav-link"><i title='Logout' class="bi bi-box-arrow-right"></i></a>
+								<NavLink to="/user" className="nav-link">User</NavLink>
+								<a style={{ cursor: "pointer" }} onClick={(e) => handleLogout(e)} className="nav-link">Logout</a>
 							</>
-							: <NavLink to="/login" className="nav-link"><i itle='Login' class="bi bi-box-arrow-in-right"></i></NavLink>
+							: <NavLink to="/login" className="nav-link">Login</NavLink>
 						}
 					</Nav>
 				</Navbar.Collapse>
 			</Navbar>
-			{/* {(location.pathname === "/catalog") &&
-				 <Row className='footer'>
-				 <CategoryFilter/> 
-				 </Row>  
-				} */}
-
 		</Container>
 	);
 })

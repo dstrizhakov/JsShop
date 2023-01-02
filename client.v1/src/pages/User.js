@@ -5,35 +5,31 @@ import { Link, useNavigate } from 'react-router-dom'
 import { logout } from '../http/userAPI.js'
 
 const User = () => {
-    const { user } = useContext(AppContext)
-    const navigate = useNavigate()
+	const { user } = useContext(AppContext)
+	const navigate = useNavigate()
 
-    const handleLogout = (event) => {
-        logout()
-        user.logout()
-        navigate('/login', {replace: true})
-    }
+	const handleLogout = (event) => {
+		logout()
+		user.logout()
+		navigate('/login', { replace: true })
+	}
 
-    return (
-        <Container className="page-header">
-            <div className="d-flex align-items-center">
-                <div className="container position-relative">
-                    <div className="row d-flex justify-content-center">
-                        <div className="col-lg-10 text-center">
-            <h1>User panel</h1>
-           {/* <p>
-                Это личный кабинет постоянного покупателя магазина
-            </p>*/}
-            <ul className="col-lg-10 text-start">
-                <li className='d-flex align-items-center'><i class="px-2 bi bi-card-checklist"></i><Link to="/user/orders">Orders history</Link></li>
-            </ul>
-            {/* <Button variant="success" onClick={handleLogout}>Logout</Button> */}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </Container>
-    )
+	return (
+		<Container className="page-header">
+			<div className="d-flex align-items-center">
+				<div className="container position-relative">
+					<div className="row d-flex justify-content-center">
+						<div className="col-lg-10 text-center">
+							<h1>User panel</h1>
+							<ul className="col-lg-10 text-start">
+								<li><Link to="/user/orders">Orders history</Link></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</Container>
+	)
 }
 
 export default User

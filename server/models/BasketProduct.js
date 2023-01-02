@@ -27,7 +27,7 @@ class BasketProduct {
     async create(basketId, data) {
         const basket = await BasketMapping.findByPk(basketId)
         if (!basket) {
-            throw new Error('Корзина не найдена в БД')
+            throw new Error('Basket not found in database')
         }
         const {quantity = 1} = data
         const item = await BasketProductMapping.create({basketId, productId, quantity})
@@ -37,11 +37,11 @@ class BasketProduct {
     async update(basketId, productId, data) {
         const basket = await BasketMapping.findByPk(basketId)
         if (!basket) {
-            throw new Error('Корзина не найдена в БД')
+            throw new Error('Basket not found in database')
         }
         const item = await BasketProductMapping.findOne({where: {basketId, productId}})
         if (!item) {
-            throw new Error('Товара нет в корзине')
+            throw new Error('Basket is empty')
         }
         if (data.quantity) {
             await item.update({quantity})
@@ -56,11 +56,11 @@ class BasketProduct {
     async delete(basketId, productId) {
         const basket = await BasketMapping.findByPk(basketId)
         if (!basket) {
-            throw new Error('Корзина не найдена в БД')
+            throw new Error('Basket not found in database')
         }
         const item = await BasketProductMapping.findOne({where: {basketId, productId}})
         if (!item) {
-            throw new Error('Товара нет в корзине')
+            throw new Error('Basket is empty')
         }
         await item.destroy()
         return item

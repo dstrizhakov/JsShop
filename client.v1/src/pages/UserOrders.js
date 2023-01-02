@@ -24,7 +24,7 @@ const UserOrders = () => {
 
 	return (
 		<Container className="page-header">
-			<h1>Your orders</h1>
+			<h1 className='text-center'>Your orders</h1>
 			<Orders items={orders} admin={false} />
 		</Container>
 	)

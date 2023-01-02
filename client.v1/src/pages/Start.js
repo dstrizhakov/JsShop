@@ -22,7 +22,7 @@ const Start = observer(() => {
 	}, [])
 
 	return (
-		<div className='page-header'>
+		<div>
 			<Slider products={catalog.products} />
 			<Container>
 				<Hero />

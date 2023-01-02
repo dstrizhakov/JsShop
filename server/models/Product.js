@@ -3,7 +3,6 @@ import { ProductProp as ProductPropMapping } from './mapping.js'
 import { Brand as BrandMapping } from './mapping.js'
 import { Category as CategoryMapping } from './mapping.js'
 import FileService from '../services/File.js'
-import AppError from '../errors/AppError.js'
 
 class Product {
     async getAll(options) {
@@ -36,7 +35,7 @@ class Product {
             ]
         })
         if (!product) {
-            throw new Error('Товар не найден в БД')
+            throw new Error('Product not found in database')
         }
         return product
     }
@@ -68,7 +67,7 @@ class Product {
             include: [{model: ProductPropMapping, as: 'props'}]
         })
         if (!product) {
-            throw new Error('Товар не найден в БД')
+            throw new Error('Product not found in database')
         }
         // пробуем сохранить изображение, если оно было загружено
         const file = FileService.save(img)
@@ -105,7 +104,7 @@ class Product {
     async delete(id) {
         const product = await ProductMapping.findByPk(id)
         if (!product) {
-            throw new Error('Товар не найден в БД')
+            throw new Error('Product not found in database')
         }
         if (product.image) { // удаляем изображение товара
             FileService.delete(product.image)
